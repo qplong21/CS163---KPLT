@@ -129,7 +129,7 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 
 void TernarySearchTree::import_slang()
 {
-	std::ifstream fin("slang.txt");
+	std::ifstream fin("Library\\slang.txt");
 	std::string keyword, definition;//processing keyword and def
 	std::string input_str;
 	while (!fin.eof())
