@@ -681,5 +681,5 @@ n00b	Leetspeak for beginner
 |-O	User is yawning/snoring.
 |I	Asleep.
 }:-(	Toupee in an updraft.
-}:^#})	Updrafted bushy-mustached pointy nosed smiley with a double-chin.
+^_	Updrafted bushy-mustached pointy nosed smiley with a double-chin.
 ~~:-(	Net.flame

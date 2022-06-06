@@ -86,13 +86,17 @@ void TernarySearchTree::add2Tree(std::string keyword,std::string definition)
 TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 {
 	TernaryTreeNode* tem = this->root;
+	//int count = 0;
 	for (int i = 0;i < keyword.length();++i)
 	{
 		if (tem == nullptr)
 		{
 			std::cout << "Not found\n";
+			//std::cout << "Pass over " << count << " nodes\n";
 			return tem;
 		}
+		//++count;
+		//std::cout << tem->ch;
 		if (tem->ch == keyword[i])
 		{
 			if (i == keyword.length() - 1)
@@ -124,6 +128,7 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 	}
 	else
 		std::cout << "Not found\n";
+	//std::cout << "Pass over " << count << " nodes\n";
 	return tem;
 }
 
@@ -148,7 +153,7 @@ void TernarySearchTree::import_slang()
 			++i;
 		}
 		this->add2Tree(keyword, definition);
-		std::cout << keyword << " ** " << definition << "\n";
+		//std::cout << keyword << " *** " << definition << "\n";
 		keyword.clear();definition.clear();
 	}
 	fin.close();
@@ -175,7 +180,7 @@ void TernarySearchTree::import_emotional()
 			++i;
 		}
 		this->add2Tree(keyword, definition);
-		std::cout << keyword << " *** " << definition<<'\n';
+		//std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();definition.clear();
 	}
 	fin.close();

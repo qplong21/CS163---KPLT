@@ -5,6 +5,7 @@ void main()
 {
     TernarySearchTree a;
     a.import_slang();
+    a.import_emotional();
     std::string input_str;
     for(int i=0;i<5;++i)
     {
