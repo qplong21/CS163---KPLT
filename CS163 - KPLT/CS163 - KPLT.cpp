@@ -6,7 +6,7 @@ void main()
     TernarySearchTree a;
     a.import_slang();
     std::string input_str;
-    while (1)
+    for(int i=0;i<5;++i)
     {
         std::cout << "Searching: ";
         std::getline(std::cin, input_str);

@@ -1,2 +1,6 @@
-﻿  main.cpp
-  CS163 - KPLT.vcxproj -> C:\Users\Maxsys\OneDrive - VNU-HCMUS\Desktop\CS163 - KPLT\x64\Debug\CS163 - KPLT.exe
+﻿  CS163 - KPLT.cpp
+C:\Users\Maxsys\OneDrive - VNU-HCMUS\Desktop\CS163---KPLT\CS163 - KPLT\CS163 - KPLT.cpp(5,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  functions.cpp
+  main.cpp
+  Generating Code...
+  CS163 - KPLT.vcxproj -> C:\Users\Maxsys\OneDrive - VNU-HCMUS\Desktop\CS163---KPLT\x64\Debug\CS163 - KPLT.exe

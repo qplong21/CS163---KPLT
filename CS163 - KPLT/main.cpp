@@ -148,7 +148,6 @@ void TernarySearchTree::import_slang()
 			++i;
 		}
 		this->add2Tree(keyword, definition);
-		std::cout << keyword << "\n";
 		keyword.clear();definition.clear();
 	}
 	fin.close();
