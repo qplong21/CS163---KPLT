@@ -22,4 +22,5 @@ public:
 	void add2Tree(std::string keyword,std::string definition);
 	TernaryTreeNode* search4keyword(std::string keyword);
 	void import_slang();
+	void import_emotional();
 };

@@ -148,6 +148,34 @@ void TernarySearchTree::import_slang()
 			++i;
 		}
 		this->add2Tree(keyword, definition);
+		std::cout << keyword << " ** " << definition << "\n";
+		keyword.clear();definition.clear();
+	}
+	fin.close();
+}
+
+void TernarySearchTree::import_emotional()
+{
+	std::ifstream fin("Library\\emotional.txt");
+	std::string keyword, definition;//processing keyword and def
+	std::string input_str;
+	while (!fin.eof())
+	{
+		std::getline(fin, input_str);
+		int i = 0;
+		while (input_str[i] != '\t')
+		{
+			keyword.push_back(input_str[i]);
+			++i;
+		}
+		++i;
+		while (input_str[i] != '\0')
+		{
+			definition.push_back(input_str[i]);
+			++i;
+		}
+		this->add2Tree(keyword, definition);
+		std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();definition.clear();
 	}
 	fin.close();
