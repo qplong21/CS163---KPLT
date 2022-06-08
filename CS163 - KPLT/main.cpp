@@ -15,7 +15,7 @@ void TernarySearchTree::deleteTree()
 	this->root = nullptr;
 }
 
-void TernarySearchTree::add2Tree(std::string keyword,std::string definition)
+void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 {
 	if (!this->root)
 	{
@@ -24,10 +24,10 @@ void TernarySearchTree::add2Tree(std::string keyword,std::string definition)
 		this->root->definition = new std::string;
 		*this->root->definition = "The letter N";
 	}
-	TernaryTreeNode* tem = this->root;
-	for (int i = 0;i < keyword.length();++i)
+	TernaryTreeNode *tem = this->root;
+	for (int i = 0; i < keyword.length(); ++i)
 	{
-		if (tem->ch == keyword[i])//go mid
+		if (tem->ch == keyword[i]) // go mid
 		{
 			if (tem->mid)
 			{
@@ -48,7 +48,7 @@ void TernarySearchTree::add2Tree(std::string keyword,std::string definition)
 			}
 			continue;
 		}
-		if (tem->ch < keyword[i])//go right;
+		if (tem->ch < keyword[i]) // go right;
 		{
 			if (tem->right)
 			{
@@ -63,7 +63,7 @@ void TernarySearchTree::add2Tree(std::string keyword,std::string definition)
 			--i;
 			continue;
 		}
-		if (tem->ch > keyword[i])//go left
+		if (tem->ch > keyword[i]) // go left
 		{
 			if (tem->left)
 			{
@@ -83,8 +83,9 @@ void TernarySearchTree::add2Tree(std::string keyword,std::string definition)
 	*tem->definition = definition;
 }
 
-TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
+TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 {
+<<<<<<< Updated upstream
 	//those line with "//" at the end is for debug
 	TernaryTreeNode* tem = this->root;
 	//int count = 0;//
@@ -98,6 +99,20 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 		}
 		//++count;//
 		//std::cout << tem->ch;//
+=======
+	TernaryTreeNode *tem = this->root;
+	// int count = 0;
+	for (int i = 0; i < keyword.length(); ++i)
+	{
+		if (tem == nullptr)
+		{
+			std::cout << "Not found in the database\n";
+			// std::cout << "Pass over " << count << " nodes\n";
+			return tem;
+		}
+		//++count;
+		// std::cout << tem->ch;
+>>>>>>> Stashed changes
 		if (tem->ch == keyword[i])
 		{
 			if (i == keyword.length() - 1)
@@ -110,13 +125,13 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 				continue;
 			}
 		}
-		if (tem->ch > keyword[i])//go left
+		if (tem->ch > keyword[i]) // go left
 		{
 			tem = tem->left;
 			--i;
 			continue;
 		}
-		if (tem->ch < keyword[i])//go right
+		if (tem->ch < keyword[i]) // go right
 		{
 			tem = tem->right;
 			--i;
@@ -128,15 +143,20 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 		std::cout << *tem->definition << "\n";
 	}
 	else
+<<<<<<< Updated upstream
 		std::cout << "Not found\n";
 	//std::cout << "Pass over " << count << " nodes\n";//
+=======
+		std::cout << "Not found in the database\n";
+	// std::cout << "Pass over " << count << " nodes\n";
+>>>>>>> Stashed changes
 	return tem;
 }
 
 void TernarySearchTree::import_slang()
 {
 	std::ifstream fin("Library\\slang.txt");
-	std::string keyword, definition;//processing keyword and def
+	std::string keyword, definition; // processing keyword and def
 	std::string input_str;
 	while (!fin.eof())
 	{
@@ -154,8 +174,9 @@ void TernarySearchTree::import_slang()
 			++i;
 		}
 		this->add2Tree(keyword, definition);
-		//std::cout << keyword << " *** " << definition << "\n";
-		keyword.clear();definition.clear();
+		// std::cout << keyword << " *** " << definition << "\n";
+		keyword.clear();
+		definition.clear();
 	}
 	fin.close();
 }
@@ -163,7 +184,7 @@ void TernarySearchTree::import_slang()
 void TernarySearchTree::import_emotional()
 {
 	std::ifstream fin("Library\\emotional.txt");
-	std::string keyword, definition;//processing keyword and def
+	std::string keyword, definition; // processing keyword and def
 	std::string input_str;
 	while (!fin.eof())
 	{
@@ -181,8 +202,9 @@ void TernarySearchTree::import_emotional()
 			++i;
 		}
 		this->add2Tree(keyword, definition);
-		//std::cout << keyword << " *** " << definition<<'\n';
-		keyword.clear();definition.clear();
+		// std::cout << keyword << " *** " << definition<<'\n';
+		keyword.clear();
+		definition.clear();
 	}
 	fin.close();
 }
