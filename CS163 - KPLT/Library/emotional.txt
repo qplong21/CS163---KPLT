@@ -115,6 +115,7 @@ ANFSCD	And now for something completely different
 ASAP	As soon as possible
 ASL	Assistant section leader
 ASOP	Assistant system operator
+ATK	Attack
 ATM	At the moment
 AWA	As well as
 AWGTHTGTTA	Are we going to have to go trough this again?
