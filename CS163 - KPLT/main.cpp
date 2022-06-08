@@ -85,18 +85,19 @@ void TernarySearchTree::add2Tree(std::string keyword,std::string definition)
 
 TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 {
+	//those line with "//" at the end is for debug
 	TernaryTreeNode* tem = this->root;
-	//int count = 0;
+	//int count = 0;//
 	for (int i = 0;i < keyword.length();++i)
 	{
 		if (tem == nullptr)
 		{
 			std::cout << "Not found\n";
-			//std::cout << "Pass over " << count << " nodes\n";
+			//std::cout << "Pass over " << count << " nodes\n";//
 			return tem;
 		}
-		//++count;
-		//std::cout << tem->ch;
+		//++count;//
+		//std::cout << tem->ch;//
 		if (tem->ch == keyword[i])
 		{
 			if (i == keyword.length() - 1)
@@ -128,7 +129,7 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword)
 	}
 	else
 		std::cout << "Not found\n";
-	//std::cout << "Pass over " << count << " nodes\n";
+	//std::cout << "Pass over " << count << " nodes\n";//
 	return tem;
 }
 
@@ -181,6 +182,38 @@ void TernarySearchTree::import_emotional()
 		}
 		this->add2Tree(keyword, definition);
 		//std::cout << keyword << " *** " << definition<<'\n';
+		keyword.clear();definition.clear();
+	}
+	fin.close();
+}
+
+void TernarySearchTree::import_dictionary()
+{
+	std::ifstream fin("Library\\dictionary.txt");
+	std::string keyword, definition;//processing keyword and def
+	std::string input_str;
+	while (!fin.eof())
+	{
+		std::getline(fin, input_str);
+		if (input_str.length() <=3)
+			continue;
+		int i = 0;
+		while (1)
+		{
+			keyword.push_back(input_str[i]);
+			++i;
+			if (input_str[i] == ' ' && input_str[i + 1] == ' ')
+				break;
+		}
+		while (input_str[i] == ' ')
+			++i;
+		while (input_str[i] != '\0')
+		{
+			definition.push_back(input_str[i]);
+			++i;
+		}
+		this->add2Tree(keyword, definition);
+		/*std::cout << keyword << " *** " << definition<<'\n';*/
 		keyword.clear();definition.clear();
 	}
 	fin.close();
