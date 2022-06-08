@@ -7,13 +7,14 @@ void main()
     a.import_slang();
     a.import_emotional();
     std::string input_str;
-    for(int i=0;i<5;++i)
+    /*for(int i=0;i<5;++i)
     {
         std::cout << "Searching: ";
         std::getline(std::cin, input_str);
         a.search4keyword(input_str);
-    }
+    }*/
     a.deleteTree();
+    std::cout << "Done";
 }
 
 
