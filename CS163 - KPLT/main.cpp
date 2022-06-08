@@ -1,6 +1,33 @@
 #include "main.h"
 #include "functions.h"
 
+Node *listOfWords = nullptr;
+
+void insertToLL(Node *&root, std::string word)
+{
+	Node *insert = new Node;
+	insert->word = word;
+	if (!root)
+	{
+		root = insert;
+		return;
+	}
+	Node *current = root;
+	while (current->next)
+		current = current->next;
+	current->next = insert;
+}
+
+std::string randomWord(Node *root, int num)
+{
+	Node *current = root;
+	for (int i = 0; i < num; i++)
+	{
+		current = current->next;
+	}
+	return current->word;
+}
+
 TernarySearchTree::TernarySearchTree()
 {
 	root = new TernaryTreeNode;
@@ -81,38 +108,25 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	}
 	tem->definition = new std::string;
 	*tem->definition = definition;
+	this->size++; // tang phan so tu cua cay
+	insertToLL(listOfWords, keyword);
 }
 
 TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 {
-<<<<<<< Updated upstream
-	//those line with "//" at the end is for debug
-	TernaryTreeNode* tem = this->root;
-	//int count = 0;//
-	for (int i = 0;i < keyword.length();++i)
-	{
-		if (tem == nullptr)
-		{
-			std::cout << "Not found\n";
-			//std::cout << "Pass over " << count << " nodes\n";//
-			return tem;
-		}
-		//++count;//
-		//std::cout << tem->ch;//
-=======
+	// those line with "//" at the end is for debug
 	TernaryTreeNode *tem = this->root;
-	// int count = 0;
+	// int count = 0;//
 	for (int i = 0; i < keyword.length(); ++i)
 	{
 		if (tem == nullptr)
 		{
-			std::cout << "Not found in the database\n";
-			// std::cout << "Pass over " << count << " nodes\n";
+			std::cout << "Not found\n";
+			// std::cout << "Pass over " << count << " nodes\n";//
 			return tem;
 		}
-		//++count;
-		// std::cout << tem->ch;
->>>>>>> Stashed changes
+		//++count;//
+		// std::cout << tem->ch;//
 		if (tem->ch == keyword[i])
 		{
 			if (i == keyword.length() - 1)
@@ -143,16 +157,15 @@ TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 		std::cout << *tem->definition << "\n";
 	}
 	else
-<<<<<<< Updated upstream
 		std::cout << "Not found\n";
-	//std::cout << "Pass over " << count << " nodes\n";//
-=======
-		std::cout << "Not found in the database\n";
-	// std::cout << "Pass over " << count << " nodes\n";
->>>>>>> Stashed changes
+	// std::cout << "Pass over " << count << " nodes\n";//
 	return tem;
 }
+TernaryTreeNode *TernarySearchTree::searchByNum(int num)
+{
 
+	return search4keyword(randomWord(listOfWords, num));
+} // dung khi random
 void TernarySearchTree::import_slang()
 {
 	std::ifstream fin("Library\\slang.txt");
@@ -174,6 +187,7 @@ void TernarySearchTree::import_slang()
 			++i;
 		}
 		this->add2Tree(keyword, definition);
+
 		// std::cout << keyword << " *** " << definition << "\n";
 		keyword.clear();
 		definition.clear();
@@ -212,12 +226,12 @@ void TernarySearchTree::import_emotional()
 void TernarySearchTree::import_dictionary()
 {
 	std::ifstream fin("Library\\dictionary.txt");
-	std::string keyword, definition;//processing keyword and def
+	std::string keyword, definition; // processing keyword and def
 	std::string input_str;
 	while (!fin.eof())
 	{
 		std::getline(fin, input_str);
-		if (input_str.length() <=3)
+		if (input_str.length() <= 3)
 			continue;
 		int i = 0;
 		while (1)
@@ -236,7 +250,8 @@ void TernarySearchTree::import_dictionary()
 		}
 		this->add2Tree(keyword, definition);
 		/*std::cout << keyword << " *** " << definition<<'\n';*/
-		keyword.clear();definition.clear();
+		keyword.clear();
+		definition.clear();
 	}
 	fin.close();
 }

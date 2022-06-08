@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "externalConsole": false,
+      "cwd": "/Users/viettung/Desktop/Projects/KPLT/CS163---KPLT/CS163 - KPLT",
+      "program": "/Users/viettung/Desktop/Projects/KPLT/CS163---KPLT/CS163 - KPLT/build/Debug/outDebug",
+      "MIMode": "gdb"
+    }
+  ]
+}

@@ -1,10 +1,21 @@
 #include "functions.h"
+#include <iostream>
 
-void deletetree(TernaryTreeNode* root)
+using namespace std;
+
+void deletetree(TernaryTreeNode *root)
 {
 	if (!root)
 		return;
-	deletetree(root->left);deletetree(root->mid);deletetree(root->right);
+	deletetree(root->left);
+	deletetree(root->mid);
+	deletetree(root->right);
 	delete root->definition;
 	delete root;
+}
+void getRandomWord(TernarySearchTree tree)
+{
+	int c = rand() % tree.size; // random so
+	cout << randomWord(listOfWords, c) << " - ";
+	cout << tree.searchByNum(c)->definition << " ";
 }
