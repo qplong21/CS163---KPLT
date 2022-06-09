@@ -228,7 +228,7 @@ void TernarySearchTree::import_emotional()
 void TernarySearchTree::import_dictionary()
 {
 	std::ifstream fin("Library\\dictionary.txt");
-	std::string keyword, definition; // processing keyword and def
+	std::string keyword;
 	std::string input_str;
 	while (!fin.eof())
 	{
@@ -245,11 +245,6 @@ void TernarySearchTree::import_dictionary()
 		}
 		while (input_str[i] == ' ')
 			++i;
-		/*while (input_str[i] != '\0')
-		{
-			definition.push_back(input_str[i]);
-			++i;
-		}*/
 		while (i--)
 		{
 			input_str.erase(input_str.begin());
@@ -257,7 +252,6 @@ void TernarySearchTree::import_dictionary()
 		this->add2Tree(keyword, input_str);
 		//std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
-		//definition.clear();
 	}
 	fin.close();
 }

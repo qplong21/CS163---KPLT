@@ -5,6 +5,7 @@ void main()
 {
     TernarySearchTree arr_of_tree;
     arr_of_tree.import_dictionary();
+    std::cout << "done";
     while (1) {
         std::string s;
         std::getline(std::cin, s);
