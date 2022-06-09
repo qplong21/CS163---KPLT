@@ -115,7 +115,7 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 {
 	// those line with "//" at the end is for debug
-	// alo quan phu long
+	// chinh cho viet hoa thuong search van duoc
 	TernaryTreeNode *tem = this->root;
 	// int count = 0;//
 	for (int i = 0; i < keyword.length(); ++i)
