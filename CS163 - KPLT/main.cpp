@@ -244,15 +244,19 @@ void TernarySearchTree::import_dictionary()
 		}
 		while (input_str[i] == ' ')
 			++i;
-		while (input_str[i] != '\0')
+		/*while (input_str[i] != '\0')
 		{
 			definition.push_back(input_str[i]);
 			++i;
+		}*/
+		while (i--)
+		{
+			input_str.erase(input_str.begin());
 		}
-		this->add2Tree(keyword, definition);
-		/*std::cout << keyword << " *** " << definition<<'\n';*/
+		this->add2Tree(keyword, input_str);
+		//std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
-		definition.clear();
+		//definition.clear();
 	}
 	fin.close();
 }
