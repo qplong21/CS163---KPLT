@@ -171,28 +171,22 @@ TernaryTreeNode *TernarySearchTree::searchByNum(int num)
 void TernarySearchTree::import_slang()
 {
 	std::ifstream fin("Library\\slang.txt");
-	std::string keyword, definition; // processing keyword and def
+	std::string keyword; // processing keyword and def
 	std::string input_str;
 	while (!fin.eof())
 	{
 		std::getline(fin, input_str);
 		int i = 0;
-		while (input_str[i] != '`')
+		while (input_str[0] != '`')
 		{
-			keyword.push_back(input_str[i]);
-			++i;
+			keyword.push_back(input_str[0]);
+			input_str.erase(input_str.begin());
 		}
-		++i;
-		while (input_str[i] != '\0')
-		{
-			definition.push_back(input_str[i]);
-			++i;
-		}
-		this->add2Tree(keyword, definition);
+		input_str.erase(input_str.begin());
+		this->add2Tree(keyword, input_str);
 
 		// std::cout << keyword << " *** " << definition << "\n";
 		keyword.clear();
-		definition.clear();
 	}
 	fin.close();
 }
@@ -200,27 +194,21 @@ void TernarySearchTree::import_slang()
 void TernarySearchTree::import_emotional()
 {
 	std::ifstream fin("Library\\emotional.txt");
-	std::string keyword, definition; // processing keyword and def
+	std::string keyword; // processing keyword and def
 	std::string input_str;
 	while (!fin.eof())
 	{
 		std::getline(fin, input_str);
 		int i = 0;
-		while (input_str[i] != '\t')
+		while (input_str[0] != '\t')
 		{
-			keyword.push_back(input_str[i]);
-			++i;
+			keyword.push_back(input_str[0]);
+			input_str.erase(input_str.begin());
 		}
-		++i;
-		while (input_str[i] != '\0')
-		{
-			definition.push_back(input_str[i]);
-			++i;
-		}
-		this->add2Tree(keyword, definition);
+		input_str.erase(input_str.begin());
+		this->add2Tree(keyword, input_str);
 		// std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
-		definition.clear();
 	}
 	fin.close();
 }
@@ -235,19 +223,16 @@ void TernarySearchTree::import_dictionary()
 		std::getline(fin, input_str);
 		if (input_str.length() <= 3)
 			continue;
-		int i = 0;
 		while (1)
 		{
-			keyword.push_back(input_str[i]);
-			++i;
-			if (input_str[i] == ' ' && input_str[i + 1] == ' ')
-				break;
-		}
-		while (input_str[i] == ' ')
-			++i;
-		while (i--)
-		{
+			keyword.push_back(input_str[0]);
 			input_str.erase(input_str.begin());
+			if (input_str[0] == ' ' && input_str[1] == ' ')
+			{
+				input_str.erase(input_str.begin());
+				input_str.erase(input_str.begin());
+				break;
+			}
 		}
 		this->add2Tree(keyword, input_str);
 		//std::cout << keyword << " *** " << definition<<'\n';
