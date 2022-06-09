@@ -161,11 +161,12 @@ TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 	// std::cout << "Pass over " << count << " nodes\n";//
 	return tem;
 }
+
 TernaryTreeNode *TernarySearchTree::searchByNum(int num)
 {
-
 	return search4keyword(randomWord(listOfWords, num));
 } // dung khi random
+
 void TernarySearchTree::import_slang()
 {
 	std::ifstream fin("Library\\slang.txt");
@@ -254,4 +255,13 @@ void TernarySearchTree::import_dictionary()
 		definition.clear();
 	}
 	fin.close();
+}
+
+TernarySearchTree* arr_of_Tree()
+{
+	TernarySearchTree arr_of_Tree[3];
+	arr_of_Tree[0].import_slang();
+	arr_of_Tree[1].import_emotional();
+	arr_of_Tree[2].import_dictionary();
+	return arr_of_Tree;
 }

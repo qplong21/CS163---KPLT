@@ -37,3 +37,4 @@ struct Node
 extern Node *listOfWords;
 void insertToLL(Node *&root, std::string word);
 std::string randomWord(Node *root, int num);
+TernarySearchTree* arr_of_Tree();
