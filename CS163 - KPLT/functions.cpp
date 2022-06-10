@@ -13,7 +13,3 @@ void deletetree(TernaryTreeNode *root)
 	delete root->definition;
 	delete root;
 }
-void getRandomWord(TernarySearchTree tree)
-{
-
-}

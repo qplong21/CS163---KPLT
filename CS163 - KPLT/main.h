@@ -20,8 +20,7 @@ public:
 	TernarySearchTree();
 	void deleteTree();
 	void add2Tree(std::string keyword, std::string definition);
-	TernaryTreeNode *search4keyword(std::string keyword);
-	TernaryTreeNode *searchByNum(int num); // dung khi random
+	TernaryTreeNode *search4keyword(std::string keyword,bool normal=true);
 	void import_slang();
 	void import_emotional();
 	void import_dictionary();

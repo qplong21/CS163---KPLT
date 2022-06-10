@@ -1,60 +1,10 @@
 #include "main.h"
 #include "functions.h"
 
-Node *listOfWords = nullptr;
-
-void insertToLL(Node *&root, std::string word)
-{
-	Node *insert = new Node;
-	insert->word = word;
-	if (!root)
-	{
-		root = insert;
-		return;
-	}
-	Node *current = root;
-	while (current->next)
-		current = current->next;
-	current->next = insert;
-}
-
-TernaryTreeNode* TernarySearchTree::getRandomWord() {
-	std::string word = "";
-	TernaryTreeNode* tem = root;
-	int c;
-	bool done = false;
-
-	while (!done) {
-
-		c = rand() % 8;
-		if (c == 0) {
-			if (tem->right)
-				tem = tem->right;
-			else
-				if (word!=""&&tem->definition)
-				  done = true;
-		}
-		else if (c==1)  {
-			if (tem->left)
-				tem = tem->left;
-			else
-				if (word!=""&&tem->definition)
-				  done = true;
-
-		}
-		else {
-			if (tem->mid) {
-				tem = tem->mid;
-				word += tem->ch;
-			}
-			else
-				if (word!=""&&tem->definition)
-				   done = true;
-		}
-	}
-	std::cout << word<<" - "<<*tem->definition << "\n";
-	return tem;
-	
+bool isLetter(char ch,bool capital=false) {
+	if (!capital)
+		return (ch >= 'a' && ch <= 'z');
+	return (ch >= 'A' && ch <= 'Z');
 }
 
 TernarySearchTree::TernarySearchTree()
@@ -69,6 +19,69 @@ void TernarySearchTree::deleteTree()
 {
 	deletetree(this->root);
 	this->root = nullptr;
+}
+TernaryTreeNode* TernarySearchTree::getRandomWord() {
+	std::string word = "";
+
+	int c;
+	bool done = false;
+	int randStartChar = rand() % 27+65;
+	//std::cout << randStartChar << "\n";
+	char ch = char(randStartChar);
+	//std::cout << ch << "\n";
+	std::string startChar(1,ch);
+	//std::cout << startChar << "\n";
+	TernaryTreeNode* tem=nullptr;
+	word = startChar;
+	bool start = true;
+	while (!done) {
+		if (start) {
+			int randSecondChar;
+			do {
+				randSecondChar = rand() % 27 + 97;
+				ch = char(randSecondChar);
+				std::string temp = word + ch; 
+				tem = search4keyword(temp, false);
+			} while (!tem);
+			start = false;
+			word += ch;
+			continue;
+		}
+		else {
+			c = rand() % 6;
+			if (c == 0) {
+				if (tem->right) {
+					tem = tem->right;
+				}
+				else
+					if (word != "" && tem->definition)
+						done = true;
+			}
+			else if (c == 1) {
+				if (tem->left)
+				{
+
+					tem = tem->left;
+				}
+				else
+					if (!start && word != "" && tem->definition)
+						done = true;
+
+			}
+			else {
+				if (tem->mid && isLetter(tem->mid->ch)) {
+					tem = tem->mid;
+					word += tem->ch;
+				}
+				else
+					if (!start && word != "" && tem->definition)
+						done = true;
+			}
+		}
+	}
+	std::cout << word << " - " << *tem->definition << "\n";
+	return tem;
+
 }
 
 void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
@@ -139,7 +152,7 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	*tem->definition = definition;
 }
 
-TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
+TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword,bool normal)
 {
 	// those line with "//" at the end is for debug
 	// chinh cho viet hoa thuong search van duoc
@@ -149,7 +162,8 @@ TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 	{
 		if (tem == nullptr)
 		{
-			std::cout << "Not found\n";
+			if (normal)
+				std::cout << "Not found\n";
 			// std::cout << "Pass over " << count << " nodes\n";//
 			return tem;
 		}
@@ -180,12 +194,14 @@ TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 			continue;
 		}
 	}
-	if (tem->definition)
-	{
-		std::cout << *tem->definition << "\n";
+	if (normal) {
+		if (tem->definition)
+		{
+			std::cout << *tem->definition << "\n";
+		}
+		else
+			std::cout << "Not found\n";
 	}
-	else
-		std::cout << "Not found\n";
 	// std::cout << "Pass over " << count << " nodes\n";//
 	return tem;
 }
