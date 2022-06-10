@@ -64,7 +64,7 @@ TernaryTreeNode* TernarySearchTree::getRandomWord() {
 					tem = tem->left;
 				}
 				else
-					if (!start && word != "" && tem->definition)
+					if (word != "" && tem->definition)
 						done = true;
 
 			}
@@ -74,7 +74,7 @@ TernaryTreeNode* TernarySearchTree::getRandomWord() {
 					word += tem->ch;
 				}
 				else
-					if (!start && word != "" && tem->definition)
+					if (word != "" && tem->definition)
 						done = true;
 			}
 		}
