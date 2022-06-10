@@ -29,12 +29,4 @@ public:
 	TernaryTreeNode* getRandomWord();
 };
 
-struct Node
-{
-	std::string word;
-	Node *next = nullptr;
-};
-
-extern Node *listOfWords;
-std::string randomWord(TernarySearchTree tree, int num);
 TernarySearchTree* arr_of_Tree();
