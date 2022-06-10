@@ -1,5 +1,6 @@
 #include "main.h"
 #include "functions.h"
+#include <thread>
 
 Node *listOfWords = nullptr;
 
@@ -109,7 +110,8 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	tem->definition = new std::string;
 	*tem->definition = definition;
 	this->size++; // tang phan so tu cua cay
-	insertToLL(listOfWords, keyword);
+	std::thread thr(insertToLL, listOfWords, keyword);
+	thr.join();
 }
 
 TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
@@ -257,7 +259,7 @@ void TernarySearchTree::import_dictionary()
 	fin.close();
 }
 
-TernarySearchTree* arr_of_Tree()
+TernarySearchTree *arr_of_Tree()
 {
 	TernarySearchTree arr_of_Tree[3];
 	arr_of_Tree[0].import_slang();
