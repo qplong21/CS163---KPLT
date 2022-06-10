@@ -1,6 +1,8 @@
 #include "main.h"
 #include "functions.h"
 #include <thread>
+#include <future>
+#include <ctime>
 
 Node *listOfWords = nullptr;
 
@@ -110,8 +112,7 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	tem->definition = new std::string;
 	*tem->definition = definition;
 	this->size++; // tang phan so tu cua cay
-	std::thread thr(insertToLL, listOfWords, keyword);
-	thr.join();
+	auto f = std::async(std::launch::async, insertToLL, listOfWords, keyword);
 }
 
 TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
@@ -237,7 +238,7 @@ void TernarySearchTree::import_dictionary()
 			}
 		}
 		this->add2Tree(keyword, input_str);
-		//std::cout << keyword << " *** " << definition<<'\n';
+		// std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
 	}
 	fin.close();
