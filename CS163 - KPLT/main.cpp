@@ -112,8 +112,6 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	tem->definition = new std::string;
 	*tem->definition = definition;
 	this->size++; // tang phan so tu cua cay
-	std::async(std::launch::async, [&]
-		{ return insertToLL(listOfWords, keyword); });
 }
 
 TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)

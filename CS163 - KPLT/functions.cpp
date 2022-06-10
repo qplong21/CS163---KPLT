@@ -15,7 +15,5 @@ void deletetree(TernaryTreeNode *root)
 }
 void getRandomWord(TernarySearchTree tree)
 {
-	int c = rand() % tree.size; // random so
-	cout << randomWord(listOfWords, c) << " - ";
-	cout << tree.searchByNum(c)->definition << " ";
+
 }
