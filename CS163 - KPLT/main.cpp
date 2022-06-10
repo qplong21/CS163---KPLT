@@ -48,7 +48,7 @@ TernaryTreeNode* TernarySearchTree::getRandomWord() {
 			continue;
 		}
 		else {
-			c = rand() % 6;
+			c = rand() % 4;
 			if (c == 0) {
 				if (tem->right) {
 					tem = tem->right;
