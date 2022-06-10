@@ -26,6 +26,7 @@ public:
 	void import_emotional();
 	void import_dictionary();
 	int size;
+	TernaryTreeNode* getRandomWord();
 };
 
 struct Node
@@ -35,6 +36,5 @@ struct Node
 };
 
 extern Node *listOfWords;
-void insertToLL(Node *&root, std::string word);
-std::string randomWord(Node *root, int num);
+std::string randomWord(TernarySearchTree tree, int num);
 TernarySearchTree* arr_of_Tree();

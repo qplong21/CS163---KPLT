@@ -1,8 +1,5 @@
 #include "main.h"
 #include "functions.h"
-#include <thread>
-#include <future>
-#include <ctime>
 
 Node *listOfWords = nullptr;
 
@@ -21,14 +18,43 @@ void insertToLL(Node *&root, std::string word)
 	current->next = insert;
 }
 
-std::string randomWord(Node *root, int num)
-{
-	Node *current = root;
-	for (int i = 0; i < num; i++)
-	{
-		current = current->next;
+TernaryTreeNode* TernarySearchTree::getRandomWord() {
+	std::string word = "";
+	TernaryTreeNode* tem = root;
+	int c;
+	bool done = false;
+
+	while (!done) {
+
+		c = rand() % 8;
+		if (c == 0) {
+			if (tem->right)
+				tem = tem->right;
+			else
+				if (word!=""&&tem->definition)
+				  done = true;
+		}
+		else if (c==1)  {
+			if (tem->left)
+				tem = tem->left;
+			else
+				if (word!=""&&tem->definition)
+				  done = true;
+
+		}
+		else {
+			if (tem->mid) {
+				tem = tem->mid;
+				word += tem->ch;
+			}
+			else
+				if (word!=""&&tem->definition)
+				   done = true;
+		}
 	}
-	return current->word;
+	std::cout << word<<" - "<<*tem->definition << "\n";
+	return tem;
+	
 }
 
 TernarySearchTree::TernarySearchTree()
@@ -165,10 +191,6 @@ TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword)
 	return tem;
 }
 
-TernaryTreeNode *TernarySearchTree::searchByNum(int num)
-{
-	return search4keyword(randomWord(listOfWords, num));
-} // dung khi random
 
 void TernarySearchTree::import_slang()
 {
