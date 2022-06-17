@@ -19,7 +19,8 @@ public:
 
 	TernarySearchTree();
 	void deleteTree();
-	void add2Tree(std::string keyword, std::string definition);
+	bool add2Tree(std::string keyword, std::string definition);
+	void editKeyword(TernaryTreeNode*& tem, std::string newDefinition);
 	TernaryTreeNode* search4keyword(std::string keyword, bool normal = true);
 	void import_slang();
 	void import_emotional();
@@ -28,6 +29,7 @@ public:
 	TernaryTreeNode* getRandomWord(bool normal = true, int i = 0);
 	void guessRandomWord();
 	void guessRandomDefinition();
+	void addNewWordToDict();
 private:
 	TernaryTreeNode* root = nullptr;
 	std::pair<std::string, std::string> wordAndDefinition[4]; //de lam guess game

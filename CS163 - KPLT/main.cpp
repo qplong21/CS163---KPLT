@@ -135,7 +135,17 @@ void TernarySearchTree::guessRandomDefinition() {
 		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].second;
 	}
 }
-void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
+void TernarySearchTree::addNewWordToDict() {
+	std::string keyword, definition;
+	std::cout << "Please enter the word you want to add: ";
+	std::getline(std::cin, keyword);
+	std::cin.ignore(1000, '\n');
+	std::cout << "Please enter the definition of the word: ";
+	std::getline(std::cin, definition);
+	std::cin.ignore(10000, '\n');
+	add2Tree(keyword, definition);
+}
+bool TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 {
 	if (!this->root)
 	{
@@ -157,7 +167,19 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 			{
 				if (i == keyword.length() - 1)
 				{
-					break;
+					//da co trong tu dien
+
+					std::cout << "The word " << keyword << " is already in the dictionary \nDo you want to edit its definition instead?";
+					char in;
+					std::cin >> in;
+					if (toupper(in) == 'Y') {
+						std::string newDefinition;
+						std::getline(std::cin, newDefinition);
+						std::cin.ignore(10000, '\n');
+						editKeyword(tem, newDefinition);
+						std::cout << "Update new definition successfully for " << keyword << "\n";
+					}
+					return false;
 				}
 				else
 				{
@@ -201,8 +223,13 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	}
 	tem->definition = new std::string;
 	*tem->definition = definition;
+	std::cout << "Added successfully word " << keyword << "\n";
+	return true;
 }
-
+void TernarySearchTree::editKeyword(TernaryTreeNode*& tem, std::string newDefinition) {
+	*tem->definition = newDefinition;
+	//de them cai save ra file nua
+}
 TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool normal)
 {
 	// those line with "//" at the end is for debug
