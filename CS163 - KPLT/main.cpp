@@ -116,6 +116,25 @@ void TernarySearchTree::guessRandomWord() {
 		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].first;
 	}
 }
+void TernarySearchTree::guessRandomDefinition() {
+	for (int i = 0; i < 4; i++) {
+		getRandomWord(false, i);
+	}
+	int chooseWord = rand() % 4;
+	std::cout << "The word is: \n" << wordAndDefinition[chooseWord].first << "\nPlease choose the correct definition: \n";
+	for (int i = 0; i < 4; i++) {
+		std::cout << i + 1 << ". " << wordAndDefinition[i].second << "\n";
+	}
+	std::cout << "Please choose your answer: ";
+	int in;
+	std::cin >> in;
+	if ((in - 1) == chooseWord) {
+		std::cout << "Congratulations, you got the correct answer!";
+	}
+	else {
+		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].second;
+	}
+}
 void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 {
 	if (!this->root)

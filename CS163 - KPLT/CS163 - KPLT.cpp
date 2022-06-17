@@ -14,6 +14,6 @@ int main()
 	srand(time(NULL)); //khoi tao random//Tung dang test cai nay
 	TernarySearchTree arr_of_tree;
 	arr_of_tree.import_dictionary();
-	arr_of_tree.guessRandomWord();
+	arr_of_tree.guessRandomDefinition();
 	arr_of_tree.deleteTree();
 }

@@ -27,6 +27,7 @@ public:
 	int size;
 	TernaryTreeNode* getRandomWord(bool normal = true, int i = 0);
 	void guessRandomWord();
+	void guessRandomDefinition();
 private:
 	TernaryTreeNode* root = nullptr;
 	std::pair<std::string, std::string> wordAndDefinition[4]; //de lam guess game
