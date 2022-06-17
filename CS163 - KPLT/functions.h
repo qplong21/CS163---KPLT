@@ -4,3 +4,4 @@
 #include <string.h>
 
 void deletetree(TernaryTreeNode *root);
+void createSet(TernarySearchTree* listOfTree);
