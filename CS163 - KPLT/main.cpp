@@ -25,42 +25,64 @@ TernaryTreeNode* TernarySearchTree::getRandomWord(bool normal, int i) {
 
 	int c;
 	bool done = false;
-	char ch = char(getRandom(26) + 65);
+	char ch = 65 + rand() % 26;
 	std::string startChar(1, ch);
 	TernaryTreeNode* tem = nullptr;
 	bool start = true;
+	bool turned = false;
+	bool outFirstTwoChar = true;
 	while (1) {
 		if (start) {
-			int randSecondChar;
 			do {
-				ch = char(getRandom(26) + 97);
-				word = startChar + ch;
+				ch = 97 + rand() % 26;
+				std::string addChar(1, ch); //de check lai cai random nay no ra tu gi
+				word = startChar + addChar;
 				tem = search4keyword(word, false);
 			} while (!tem);
 			start = false;
+			turned = false;
 		}
 		else {
-			c = getRandom(5);
+			c = rand() % 5;
 			if (c == 0) {
-				if (tem->right) {
+				if (tem->right && isLetter(tem->right->ch)) {
+					//phai them delete char trc o day
+					if (!turned)
+						word.pop_back();
 					tem = tem->right;
-				}
-			}
-			else if (c == 1) {
-				if (tem->left)
-				{
-					tem = tem->left;
-				}
-			}
-			else {
-				if (tem->mid) {
-					tem = tem->mid;
 					word += tem->ch;
+					turned = true;
 				}
-				else
+				else if (!tem->right)
 					if (tem->definition)
 						break;
 			}
+			else if (c == 1) {
+				if (tem->left && isLetter(tem->left->ch))
+				{
+					if (!turned)
+						word.pop_back();
+					tem = tem->left;
+					word += tem->ch;
+					turned = true;
+				}
+				else if (!tem->left)
+					if (tem->definition)
+						break;
+			}
+			else {
+				if (tem->mid) {
+					std::string addChar(1, tem->mid->ch);
+
+					word += addChar;
+					tem = tem->mid;
+					turned = false;
+				}
+				else if (!tem->mid)
+					if (tem->definition)
+						break;
+			}
+			//de ti kiem cach random khac
 		}
 	}
 	if (normal) {
@@ -79,7 +101,7 @@ void TernarySearchTree::guessRandomWord() {
 	for (int i = 0; i < 4; i++) {
 		getRandomWord(false, i);
 	}
-	int chooseWord = getRandom(4);
+	int chooseWord = rand() % 4;
 	std::cout << "The word has this definition: \n" << wordAndDefinition[chooseWord].second << "\nPlease choose the correct word: \n";
 	for (int i = 0; i < 4; i++) {
 		std::cout << i + 1 << ". " << wordAndDefinition[i].first << "\n";
@@ -194,7 +216,7 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool nor
 		if (tem->ch > keyword[i]) // go left
 		{
 			tem = tem->left;
-			--i;
+			--i; //de no kh tang len qua chu ke tiep
 			continue;
 		}
 		if (tem->ch < keyword[i]) // go right
@@ -290,7 +312,7 @@ void TernarySearchTree::import_dictionary()
 	fin.close();
 }
 
-<<<<<<< Updated upstream
+
 TernarySearchTree* arr_of_Tree()
 {
 	TernarySearchTree arr_of_Tree[3];
@@ -299,5 +321,4 @@ TernarySearchTree* arr_of_Tree()
 	arr_of_Tree[2].import_dictionary();
 	return arr_of_Tree;
 }
-=======
->>>>>>> Stashed changes
+

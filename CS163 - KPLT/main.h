@@ -16,7 +16,7 @@ struct TernaryTreeNode
 class TernarySearchTree
 {
 public:
-	TernaryTreeNode* root = nullptr;
+
 	TernarySearchTree();
 	void deleteTree();
 	void add2Tree(std::string keyword, std::string definition);
@@ -28,6 +28,7 @@ public:
 	TernaryTreeNode* getRandomWord(bool normal = true, int i = 0);
 	void guessRandomWord();
 private:
+	TernaryTreeNode* root = nullptr;
 	std::pair<std::string, std::string> wordAndDefinition[4]; //de lam guess game
 };
 
