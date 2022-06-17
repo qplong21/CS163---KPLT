@@ -25,15 +25,16 @@ TernaryTreeNode* TernarySearchTree::getRandomWord(bool normal, int i) {
 
 	int c;
 	bool done = false;
-	char ch = char(getRandom(26) + 65);
+	char ch = getRandom(26) + 65;
 	std::string startChar(1, ch);
 	TernaryTreeNode* tem = nullptr;
 	bool start = true;
+	bool turned=false; //kiem tra co phai moi re nhanh qua
 	while (1) {
 		if (start) {
 			int randSecondChar;
 			do {
-				ch = char(getRandom(26) + 97);
+				ch = getRandom(26) + 97;
 				word = startChar + ch;
 				tem = search4keyword(word, false);
 			} while (!tem);
@@ -43,19 +44,26 @@ TernaryTreeNode* TernarySearchTree::getRandomWord(bool normal, int i) {
 			c = getRandom(5);
 			if (c == 0) {
 				if (tem->right) {
+					if (!turned)
+					word.pop_back();
 					tem = tem->right;
+					turned=true;
 				}
 			}
 			else if (c == 1) {
 				if (tem->left)
 				{
+					if (!turned)
+					word.pop_back();
 					tem = tem->left;
+					turned=true;
 				}
 			}
 			else {
 				if (tem->mid) {
 					tem = tem->mid;
 					word += tem->ch;
+					turned=false;
 				}
 				else
 					if (tem->definition)
