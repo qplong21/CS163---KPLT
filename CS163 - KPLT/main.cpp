@@ -25,57 +25,41 @@ TernaryTreeNode* TernarySearchTree::getRandomWord(bool normal, int i) {
 
 	int c;
 	bool done = false;
-	int randStartChar = rand() % 27 + 65;
-	//std::cout << randStartChar << "\n";
-	char ch = char(randStartChar);
-	//std::cout << ch << "\n";
+	char ch = char(getRandom(26) + 65);
 	std::string startChar(1, ch);
-	//std::cout << startChar << "\n";
 	TernaryTreeNode* tem = nullptr;
-	word = startChar;
 	bool start = true;
-	while (!done) {
+	while (1) {
 		if (start) {
 			int randSecondChar;
 			do {
-				randSecondChar = rand() % 27 + 97;
-				ch = char(randSecondChar);
-				std::string temp = word + ch;
-				tem = search4keyword(temp, false);
+				ch = char(getRandom(26) + 97);
+				word = startChar + ch;
+				tem = search4keyword(word, false);
 			} while (!tem);
 			start = false;
-			word += ch;
-			continue;
 		}
 		else {
-			c = rand() % 4;
+			c = getRandom(5);
 			if (c == 0) {
 				if (tem->right) {
 					tem = tem->right;
 				}
-				else
-					if (word != "" && tem->definition)
-						done = true;
 			}
 			else if (c == 1) {
 				if (tem->left)
 				{
-
 					tem = tem->left;
 				}
-				else
-					if (word != "" && tem->definition)
-						done = true;
-
 			}
 			else {
-				if (tem->mid && isLetter(tem->mid->ch)) {
+				if (tem->mid) {
 					tem = tem->mid;
 					word += tem->ch;
 				}
 				else
-					if (word != "" && tem->definition)
-						done = true;
+					if (tem->definition)
+						break;
 			}
 		}
 	}
@@ -95,8 +79,8 @@ void TernarySearchTree::guessRandomWord() {
 	for (int i = 0; i < 4; i++) {
 		getRandomWord(false, i);
 	}
-	int chooseWord = rand() % 4;
-	std::cout << "The word has this definition: " << wordAndDefinition[chooseWord].second << "\nPlease choose the correct word: \n";
+	int chooseWord = getRandom(4);
+	std::cout << "The word has this definition: \n" << wordAndDefinition[chooseWord].second << "\nPlease choose the correct word: \n";
 	for (int i = 0; i < 4; i++) {
 		std::cout << i + 1 << ". " << wordAndDefinition[i].first << "\n";
 	}
@@ -197,7 +181,7 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool nor
 		// std::cout << tem->ch;//
 		if (tem->ch == keyword[i])
 		{
-			if (i == keyword.length() - 1)
+			if (i == keyword.length() - 1) //den dung tu
 			{
 				break;
 			}
