@@ -358,13 +358,95 @@ void TernarySearchTree::import_dictionary()
 	fin.close();
 }
 
-
-TernarySearchTree* arr_of_Tree()
+void TernarySearchTree::deleteKeword(std::string keyword)
 {
-	TernarySearchTree arr_of_Tree[3];
-	arr_of_Tree[0].import_slang();
-	arr_of_Tree[1].import_emotional();
-	arr_of_Tree[2].import_dictionary();
-	return arr_of_Tree;
+	TernaryTreeNode* tem = this->root, * breakpoint = nullptr;
+	std::vector<TernaryTreeNode*> myVec;
+	for (int i = 0; i < keyword.length(); ++i)
+	{
+		if (tem == nullptr)
+		{
+			return;
+		}
+		if (tem->ch == keyword[i])
+		{
+			if (i == keyword.length() - 1) //den dung tu
+			{
+				break;
+			}
+			else
+			{
+				if (childOfNode(tem) == 1 && tem->definition == nullptr)
+					myVec.push_back(tem);
+				else
+				{
+					breakpoint = tem;
+					myVec.clear();
+				}
+				tem = tem->mid;
+				continue;
+			}
+		}
+		if (tem->ch > keyword[i]) // go left
+		{
+			if (childOfNode(tem) == 1 && tem->definition == nullptr)
+				myVec.push_back(tem);
+			else
+			{
+				breakpoint = tem;
+				myVec.clear();
+			}
+			tem = tem->left;
+			--i;
+			continue;
+		}
+		if (tem->ch < keyword[i]) // go right
+		{
+			if (childOfNode(tem) == 1 && tem->definition == nullptr)
+				myVec.push_back(tem);
+			else
+			{
+				breakpoint = tem;
+				myVec.clear();
+			}
+			tem = tem->right;
+			--i;
+			continue;
+		}
+	}
+	if (tem->definition)
+	{
+		if (childOfNode(tem))
+		{
+			delete tem->definition;
+			tem->definition = nullptr;
+			return;
+		}
+		if (myVec.empty() && breakpoint)
+		{
+			if (breakpoint->left == tem)
+				breakpoint->left = nullptr;
+			else if (breakpoint->mid == tem)
+				breakpoint->mid = nullptr;
+			else if (breakpoint->right == tem)
+				breakpoint->right = nullptr;
+			return;
+		}
+		delete tem->definition;
+		delete tem;
+		if (breakpoint->left == myVec[0])
+			breakpoint->left = nullptr;
+		else if (breakpoint->mid == myVec[0])
+			breakpoint->mid = nullptr;
+		else if (breakpoint->right == myVec[0])
+			breakpoint->right = nullptr;
+		else
+			return;
+		for (int i = 0;i < myVec.size();++i)
+		{
+			delete myVec[i];
+		}
+		myVec.clear();
+	}
 }
 

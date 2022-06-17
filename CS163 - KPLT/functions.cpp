@@ -20,3 +20,15 @@ void createSet(TernarySearchTree* listOfTree)
 	listOfTree[1].import_emotional();
 	listOfTree[2].import_dictionary();
 }
+
+int childOfNode(TernaryTreeNode* node)//return number of child
+{
+	int i = 0;
+	if (node->left)
+		++i;
+	if (node->mid)
+		++i;
+	if (node->right)
+		++i;
+	return i;
+}

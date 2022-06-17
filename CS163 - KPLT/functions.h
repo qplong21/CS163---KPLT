@@ -8,3 +8,4 @@
 void deletetree(TernaryTreeNode* root);
 
 void createSet(TernarySearchTree* listOfTree);
+int childOfNode(TernaryTreeNode* node)
