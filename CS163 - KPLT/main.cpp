@@ -1,7 +1,7 @@
 #include "main.h"
 #include "functions.h"
 
-bool isLetter(char ch,bool capital=false) {
+bool isLetter(char ch, bool capital = false) {
 	if (!capital)
 		return (ch >= 'a' && ch <= 'z');
 	return (ch >= 'A' && ch <= 'Z');
@@ -20,18 +20,18 @@ void TernarySearchTree::deleteTree()
 	deletetree(this->root);
 	this->root = nullptr;
 }
-TernaryTreeNode* TernarySearchTree::getRandomWord() {
+TernaryTreeNode* TernarySearchTree::getRandomWord(bool normal, int i) {
 	std::string word = "";
 
 	int c;
 	bool done = false;
-	int randStartChar = rand() % 27+65;
+	int randStartChar = rand() % 27 + 65;
 	//std::cout << randStartChar << "\n";
 	char ch = char(randStartChar);
 	//std::cout << ch << "\n";
-	std::string startChar(1,ch);
+	std::string startChar(1, ch);
 	//std::cout << startChar << "\n";
-	TernaryTreeNode* tem=nullptr;
+	TernaryTreeNode* tem = nullptr;
 	word = startChar;
 	bool start = true;
 	while (!done) {
@@ -40,7 +40,7 @@ TernaryTreeNode* TernarySearchTree::getRandomWord() {
 			do {
 				randSecondChar = rand() % 27 + 97;
 				ch = char(randSecondChar);
-				std::string temp = word + ch; 
+				std::string temp = word + ch;
 				tem = search4keyword(temp, false);
 			} while (!tem);
 			start = false;
@@ -79,11 +79,37 @@ TernaryTreeNode* TernarySearchTree::getRandomWord() {
 			}
 		}
 	}
-	std::cout << word << " - " << *tem->definition << "\n";
+	if (normal) {
+		std::cout << word << " - " << *tem->definition << "\n";
+	}
+	else {
+		std::pair<std::string, std::string> newPair;
+		newPair.first = word;
+		newPair.second = *tem->definition;
+		this->wordAndDefinition[i] = newPair;
+	}
 	return tem;
 
 }
-
+void TernarySearchTree::guessRandomWord() {
+	for (int i = 0; i < 4; i++) {
+		getRandomWord(false, i);
+	}
+	int chooseWord = rand() % 4;
+	std::cout << "The word has this definition: " << wordAndDefinition[chooseWord].second << "\nPlease choose the correct word: \n";
+	for (int i = 0; i < 4; i++) {
+		std::cout << i + 1 << ". " << wordAndDefinition[i].first << "\n";
+	}
+	std::cout << "Please choose your answer: ";
+	int in;
+	std::cin >> in;
+	if ((in - 1) == chooseWord) {
+		std::cout << "Congratulations, you got the correct answer!";
+	}
+	else {
+		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].first;
+	}
+}
 void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 {
 	if (!this->root)
@@ -93,7 +119,7 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 		this->root->definition = new std::string;
 		*this->root->definition = "The letter N";
 	}
-	TernaryTreeNode *tem = this->root;
+	TernaryTreeNode* tem = this->root;
 	for (int i = 0; i < keyword.length(); ++i)
 	{
 		if (tem->ch == keyword[i]) // go mid
@@ -152,11 +178,11 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	*tem->definition = definition;
 }
 
-TernaryTreeNode *TernarySearchTree::search4keyword(std::string keyword,bool normal)
+TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool normal)
 {
 	// those line with "//" at the end is for debug
 	// chinh cho viet hoa thuong search van duoc
-	TernaryTreeNode *tem = this->root;
+	TernaryTreeNode* tem = this->root;
 	// int count = 0;//
 	for (int i = 0; i < keyword.length(); ++i)
 	{
@@ -280,7 +306,7 @@ void TernarySearchTree::import_dictionary()
 	fin.close();
 }
 
-TernarySearchTree *arr_of_Tree()
+TernarySearchTree* arr_of_Tree()
 {
 	TernarySearchTree arr_of_Tree[3];
 	arr_of_Tree[0].import_slang();
