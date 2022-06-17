@@ -31,4 +31,3 @@ private:
 	std::pair<std::string, std::string> wordAndDefinition[4]; //de lam guess game
 };
 
-TernarySearchTree* arr_of_Tree();

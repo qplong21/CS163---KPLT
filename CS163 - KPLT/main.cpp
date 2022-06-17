@@ -290,6 +290,7 @@ void TernarySearchTree::import_dictionary()
 	fin.close();
 }
 
+<<<<<<< Updated upstream
 TernarySearchTree* arr_of_Tree()
 {
 	TernarySearchTree arr_of_Tree[3];
@@ -298,3 +299,5 @@ TernarySearchTree* arr_of_Tree()
 	arr_of_Tree[2].import_dictionary();
 	return arr_of_Tree;
 }
+=======
+>>>>>>> Stashed changes
