@@ -7,5 +7,5 @@
 
 void deletetree(TernaryTreeNode* root);
 
-void deletetree(TernaryTreeNode *root);
+int getRandom(int lim);
 void createSet(TernarySearchTree* listOfTree);
