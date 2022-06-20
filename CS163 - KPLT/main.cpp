@@ -450,3 +450,7 @@ void TernarySearchTree::deleteKeword(std::string keyword)
 	}
 }
 
+TernaryTreeNode* TernarySearchTree::getRoot()
+{
+	return this->root;
+}

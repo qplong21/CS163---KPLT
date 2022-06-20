@@ -31,6 +31,7 @@ public:
 	void guessRandomDefinition();
 	void addNewWordToDict();
 	void deleteKeword(std::string keyword);
+	TernaryTreeNode* getRoot();
 private:
 	TernaryTreeNode* root = nullptr;
 	std::pair<std::string, std::string> wordAndDefinition[4]; //de lam guess game
