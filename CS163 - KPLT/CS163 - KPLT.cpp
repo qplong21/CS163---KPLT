@@ -11,11 +11,13 @@ int main()
 	{
 		listOfTree[i].deleteTree();
 	}*/
-
-
-	//srand(time(NULL)); //khoi tao random//Tung dang test cai nay
-	//TernarySearchTree arr_of_tree;
-	//arr_of_tree.import_dictionary();
-	//arr_of_tree.guessRandomDefinition();
-	//arr_of_tree.deleteTree();
+	srand(time(NULL)); //khoi tao random//Tung dang test cai nay
+	TernarySearchTree arr_of_tree;
+	arr_of_tree.import_dictionary();
+	std::string s;
+	do {
+		std::getline(std::cin, s);
+		arr_of_tree.search4keyword(s);
+	} while (s != "");
+	arr_of_tree.deleteTree();
 }

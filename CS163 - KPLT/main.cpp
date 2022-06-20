@@ -143,9 +143,9 @@ void TernarySearchTree::addNewWordToDict() {
 	std::cout << "Please enter the definition of the word: ";
 	std::getline(std::cin, definition);
 	std::cin.ignore(10000, '\n');
-	add2Tree(keyword, definition,0);
+	add2Tree(keyword, definition, 0);
 }
-bool TernarySearchTree::add2Tree(std::string keyword, std::string definition,bool forImport)
+void TernarySearchTree::add2Tree(std::string keyword, std::string definition, bool importing)
 {
 	if (!this->root)
 	{
@@ -168,8 +168,7 @@ bool TernarySearchTree::add2Tree(std::string keyword, std::string definition,boo
 				if (i == keyword.length() - 1)
 				{
 					//da co trong tu dien
-					if (!forImport)
-					{
+					if (!importing) {
 						std::cout << "The word " << keyword << " is already in the dictionary \nDo you want to edit its definition instead?";
 						char in;
 						std::cin >> in;
@@ -181,7 +180,6 @@ bool TernarySearchTree::add2Tree(std::string keyword, std::string definition,boo
 							std::cout << "Update new definition successfully for " << keyword << "\n";
 						}
 					}
-					return false;
 				}
 				else
 				{
@@ -225,9 +223,8 @@ bool TernarySearchTree::add2Tree(std::string keyword, std::string definition,boo
 	}
 	tem->definition = new std::string;
 	*tem->definition = definition;
-	if(!forImport)
+	if (!importing)
 		std::cout << "Added successfully word " << keyword << "\n";
-	return true;
 }
 void TernarySearchTree::editKeyword(TernaryTreeNode*& tem, std::string newDefinition) {
 	*tem->definition = newDefinition;

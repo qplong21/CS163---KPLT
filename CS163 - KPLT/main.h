@@ -19,7 +19,7 @@ public:
 
 	TernarySearchTree();
 	void deleteTree();
-	bool add2Tree(std::string keyword, std::string definition,bool forImport);
+	void add2Tree(std::string keyword, std::string definition, bool importing = true);
 	void editKeyword(TernaryTreeNode*& tem, std::string newDefinition);
 	TernaryTreeNode* search4keyword(std::string keyword, bool normal = true);
 	void import_slang();
