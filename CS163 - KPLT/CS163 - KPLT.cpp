@@ -5,15 +5,17 @@
 
 int main()
 {
-	/*TernarySearchTree listOfTree[NUMofSET];
+	/*TernarySearchTree listOfTree[NUMofSET];//Long dang test cai nay
 	createSet(listOfTree);
 	for (int i = 0; i < 3; ++i)
 	{
 		listOfTree[i].deleteTree();
 	}*/
-	srand(time(NULL)); //khoi tao random//Tung dang test cai nay
-	TernarySearchTree arr_of_tree;
-	arr_of_tree.import_dictionary();
-	arr_of_tree.guessRandomDefinition();
-	arr_of_tree.deleteTree();
+
+
+	//srand(time(NULL)); //khoi tao random//Tung dang test cai nay
+	//TernarySearchTree arr_of_tree;
+	//arr_of_tree.import_dictionary();
+	//arr_of_tree.guessRandomDefinition();
+	//arr_of_tree.deleteTree();
 }
