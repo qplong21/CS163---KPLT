@@ -36,7 +36,11 @@ void printTree(TernaryTreeNode* root, std::string str)
 	if (!root)
 		return;
 	if (root->definition)
-		std::cout << str << "\n";
+	{
+		str.push_back(root->ch);
+		std::cout << str << "*";//str hoan chinh o day
+		str.pop_back();
+	}
 	printTree(root->left, str);
 	str.push_back(root->ch);
 	printTree(root->mid, str);
