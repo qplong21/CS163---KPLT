@@ -7,5 +7,6 @@
 
 void deletetree(TernaryTreeNode* root);
 
-int getRandom(int lim);
 void createSet(TernarySearchTree* listOfTree);
+int childOfNode(TernaryTreeNode* node);
+void printTree(TernaryTreeNode* root, std::string str);

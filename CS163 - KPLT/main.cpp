@@ -25,42 +25,64 @@ TernaryTreeNode* TernarySearchTree::getRandomWord(bool normal, int i) {
 
 	int c;
 	bool done = false;
-	char ch = char(getRandom(26) + 65);
+	char ch = 65 + rand() % 26;
 	std::string startChar(1, ch);
 	TernaryTreeNode* tem = nullptr;
 	bool start = true;
+	bool turned = false;
+	bool outFirstTwoChar = true;
 	while (1) {
 		if (start) {
-			int randSecondChar;
 			do {
-				ch = char(getRandom(26) + 97);
-				word = startChar + ch;
+				ch = 97 + rand() % 26;
+				std::string addChar(1, ch); //de check lai cai random nay no ra tu gi
+				word = startChar + addChar;
 				tem = search4keyword(word, false);
 			} while (!tem);
 			start = false;
+			turned = false;
 		}
 		else {
-			c = getRandom(5);
+			c = rand() % 5;
 			if (c == 0) {
-				if (tem->right) {
+				if (tem->right && isLetter(tem->right->ch)) {
+					//phai them delete char trc o day
+					if (!turned)
+						word.pop_back();
 					tem = tem->right;
-				}
-			}
-			else if (c == 1) {
-				if (tem->left)
-				{
-					tem = tem->left;
-				}
-			}
-			else {
-				if (tem->mid) {
-					tem = tem->mid;
 					word += tem->ch;
+					turned = true;
 				}
-				else
+				else if (!tem->right)
 					if (tem->definition)
 						break;
 			}
+			else if (c == 1) {
+				if (tem->left && isLetter(tem->left->ch))
+				{
+					if (!turned)
+						word.pop_back();
+					tem = tem->left;
+					word += tem->ch;
+					turned = true;
+				}
+				else if (!tem->left)
+					if (tem->definition)
+						break;
+			}
+			else {
+				if (tem->mid) {
+					std::string addChar(1, tem->mid->ch);
+
+					word += addChar;
+					tem = tem->mid;
+					turned = false;
+				}
+				else if (!tem->mid)
+					if (tem->definition)
+						break;
+			}
+			//de ti kiem cach random khac
 		}
 	}
 	if (normal) {
@@ -79,7 +101,7 @@ void TernarySearchTree::guessRandomWord() {
 	for (int i = 0; i < 4; i++) {
 		getRandomWord(false, i);
 	}
-	int chooseWord = getRandom(4);
+	int chooseWord = rand() % 4;
 	std::cout << "The word has this definition: \n" << wordAndDefinition[chooseWord].second << "\nPlease choose the correct word: \n";
 	for (int i = 0; i < 4; i++) {
 		std::cout << i + 1 << ". " << wordAndDefinition[i].first << "\n";
@@ -94,7 +116,36 @@ void TernarySearchTree::guessRandomWord() {
 		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].first;
 	}
 }
-void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
+void TernarySearchTree::guessRandomDefinition() {
+	for (int i = 0; i < 4; i++) {
+		getRandomWord(false, i);
+	}
+	int chooseWord = rand() % 4;
+	std::cout << "The word is: \n" << wordAndDefinition[chooseWord].first << "\nPlease choose the correct definition: \n";
+	for (int i = 0; i < 4; i++) {
+		std::cout << i + 1 << ". " << wordAndDefinition[i].second << "\n";
+	}
+	std::cout << "Please choose your answer: ";
+	int in;
+	std::cin >> in;
+	if ((in - 1) == chooseWord) {
+		std::cout << "Congratulations, you got the correct answer!";
+	}
+	else {
+		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].second;
+	}
+}
+void TernarySearchTree::addNewWordToDict() {
+	std::string keyword, definition;
+	std::cout << "Please enter the word you want to add: ";
+	std::getline(std::cin, keyword);
+	std::cin.ignore(1000, '\n');
+	std::cout << "Please enter the definition of the word: ";
+	std::getline(std::cin, definition);
+	std::cin.ignore(10000, '\n');
+	add2Tree(keyword, definition, 0);
+}
+void TernarySearchTree::add2Tree(std::string keyword, std::string definition, bool importing)
 {
 	if (!this->root)
 	{
@@ -116,7 +167,19 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 			{
 				if (i == keyword.length() - 1)
 				{
-					break;
+					//da co trong tu dien
+					if (!importing) {
+						std::cout << "The word " << keyword << " is already in the dictionary \nDo you want to edit its definition instead?";
+						char in;
+						std::cin >> in;
+						if (toupper(in) == 'Y') {
+							std::string newDefinition;
+							std::getline(std::cin, newDefinition);
+							std::cin.ignore(10000, '\n');
+							editKeyword(tem, newDefinition);
+							std::cout << "Update new definition successfully for " << keyword << "\n";
+						}
+					}
 				}
 				else
 				{
@@ -160,8 +223,13 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition)
 	}
 	tem->definition = new std::string;
 	*tem->definition = definition;
+	if (!importing)
+		std::cout << "Added successfully word " << keyword << "\n";
 }
-
+void TernarySearchTree::editKeyword(TernaryTreeNode*& tem, std::string newDefinition) {
+	*tem->definition = newDefinition;
+	//de them cai save ra file nua
+}
 TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool normal)
 {
 	// those line with "//" at the end is for debug
@@ -194,7 +262,7 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool nor
 		if (tem->ch > keyword[i]) // go left
 		{
 			tem = tem->left;
-			--i;
+			--i; //de no kh tang len qua chu ke tiep
 			continue;
 		}
 		if (tem->ch < keyword[i]) // go right
@@ -232,7 +300,7 @@ void TernarySearchTree::import_slang()
 			input_str.erase(input_str.begin());
 		}
 		input_str.erase(input_str.begin());
-		this->add2Tree(keyword, input_str);
+		this->add2Tree(keyword, input_str,1);
 
 		// std::cout << keyword << " *** " << definition << "\n";
 		keyword.clear();
@@ -255,7 +323,7 @@ void TernarySearchTree::import_emotional()
 			input_str.erase(input_str.begin());
 		}
 		input_str.erase(input_str.begin());
-		this->add2Tree(keyword, input_str);
+		this->add2Tree(keyword, input_str,1);
 		// std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
 	}
@@ -283,21 +351,106 @@ void TernarySearchTree::import_dictionary()
 				break;
 			}
 		}
-		this->add2Tree(keyword, input_str);
+		this->add2Tree(keyword, input_str,1);
 		// std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
 	}
 	fin.close();
 }
 
-<<<<<<< Updated upstream
-TernarySearchTree* arr_of_Tree()
+void TernarySearchTree::deleteKeword(std::string keyword)
 {
-	TernarySearchTree arr_of_Tree[3];
-	arr_of_Tree[0].import_slang();
-	arr_of_Tree[1].import_emotional();
-	arr_of_Tree[2].import_dictionary();
-	return arr_of_Tree;
+	TernaryTreeNode* tem = this->root, * breakpoint = nullptr;
+	std::vector<TernaryTreeNode*> myVec;
+	for (int i = 0; i < keyword.length(); ++i)
+	{
+		if (tem == nullptr)
+		{
+			return;
+		}
+		if (tem->ch == keyword[i])
+		{
+			if (i == keyword.length() - 1) //den dung tu
+			{
+				break;
+			}
+			else
+			{
+				if (childOfNode(tem) == 1 && tem->definition == nullptr)
+					myVec.push_back(tem);
+				else
+				{
+					breakpoint = tem;
+					myVec.clear();
+				}
+				tem = tem->mid;
+				continue;
+			}
+		}
+		if (tem->ch > keyword[i]) // go left
+		{
+			if (childOfNode(tem) == 1 && tem->definition == nullptr)
+				myVec.push_back(tem);
+			else
+			{
+				breakpoint = tem;
+				myVec.clear();
+			}
+			tem = tem->left;
+			--i;
+			continue;
+		}
+		if (tem->ch < keyword[i]) // go right
+		{
+			if (childOfNode(tem) == 1 && tem->definition == nullptr)
+				myVec.push_back(tem);
+			else
+			{
+				breakpoint = tem;
+				myVec.clear();
+			}
+			tem = tem->right;
+			--i;
+			continue;
+		}
+	}
+	if (tem->definition)
+	{
+		if (childOfNode(tem))
+		{
+			delete tem->definition;
+			tem->definition = nullptr;
+			return;
+		}
+		if (myVec.empty() && breakpoint)
+		{
+			if (breakpoint->left == tem)
+				breakpoint->left = nullptr;
+			else if (breakpoint->mid == tem)
+				breakpoint->mid = nullptr;
+			else if (breakpoint->right == tem)
+				breakpoint->right = nullptr;
+			return;
+		}
+		delete tem->definition;
+		delete tem;
+		if (breakpoint->left == myVec[0])
+			breakpoint->left = nullptr;
+		else if (breakpoint->mid == myVec[0])
+			breakpoint->mid = nullptr;
+		else if (breakpoint->right == myVec[0])
+			breakpoint->right = nullptr;
+		else
+			return;
+		for (int i = 0;i < myVec.size();++i)
+		{
+			delete myVec[i];
+		}
+		myVec.clear();
+	}
 }
-=======
->>>>>>> Stashed changes
+
+TernaryTreeNode* TernarySearchTree::getRoot()
+{
+	return this->root;
+}
