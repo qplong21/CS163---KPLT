@@ -16,10 +16,7 @@ int main()
 	//	listOfTree[2].search4keyword(s);//list of tree [2] la dictionary
 	//} while (s != "");
 
-	/*std::string str = "";//Long dan test cai nay
-	printTree(listOfTree[2].getRoot(), str);*/
-	listOfTree[2].addNewWordToDict();
-	listOfTree[2].search4keyword("Apple");
+	
 	for (int i = 0; i < 3; ++i)//xoa
 	{
 		listOfTree[i].deleteTree();
