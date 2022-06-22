@@ -139,10 +139,9 @@ void TernarySearchTree::addNewWordToDict() {
 	std::string keyword, definition;
 	std::cout << "Please enter the word you want to add: ";
 	std::getline(std::cin, keyword);
-	std::cin.ignore(1000, '\n');
 	std::cout << "Please enter the definition of the word: ";
 	std::getline(std::cin, definition);
-	add2Tree(keyword, definition, 0);
+	this->add2Tree(keyword, definition, 0);
 }
 void TernarySearchTree::add2Tree(std::string keyword, std::string definition, bool importing)
 {
