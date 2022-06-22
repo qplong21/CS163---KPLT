@@ -157,6 +157,10 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition, bo
 	{
 		if (tem->ch == keyword[i]) // go mid
 		{
+			if (!importing && i == keyword.length() - 1 && tem->definition) { //tu da co
+				std::cout << "Already in the dictionary\n";
+				return;
+			}
 			if (tem->mid)
 			{
 				tem = tem->mid;
@@ -165,20 +169,11 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition, bo
 			{
 				if (i == keyword.length() - 1)
 				{
-					//da co trong tu dien
-					if (!importing) {
-						std::cout << "The word " << keyword << " is already in the dictionary \nDo you want to edit its definition instead?";
-						char in;
-						std::cin >> in;
-						if (toupper(in) == 'Y') {
-							std::string newDefinition;
-							std::getline(std::cin, newDefinition);
-							std::cin.ignore(10000, '\n');
-							editKeyword(tem, newDefinition);
-							std::cout << "Update new definition successfully for " << keyword << "\n";
-						}
-						return;
-					}
+					//if (!importing && tem->definition) {
+					//	std::cout << "Already in the dictionary!\n"; //tu da co 
+					//	return;
+					//}
+					break; //da den ki tu cuoi, kh can add gi them
 				}
 				else
 				{
