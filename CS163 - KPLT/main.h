@@ -5,6 +5,10 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <chrono>
+#include <random>
+
+#define NUMofSET 3
 
 struct TernaryTreeNode
 {
@@ -22,9 +26,7 @@ public:
 	void add2Tree(std::string keyword, std::string definition, bool importing = true);
 	void editKeyword(TernaryTreeNode*& tem, std::string newDefinition);
 	TernaryTreeNode* search4keyword(std::string keyword, bool normal = true);
-	void import_slang();
-	void import_emotional();
-	void import_dictionary();
+	void import_dictionary(int index);
 	int size;
 	TernaryTreeNode* getRandomWord(bool normal = true, int i = 0);
 	void guessRandomWord();

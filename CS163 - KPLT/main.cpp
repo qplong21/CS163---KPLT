@@ -287,54 +287,23 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool nor
 }
 
 
-void TernarySearchTree::import_slang()
+void TernarySearchTree::import_dictionary(int index)
 {
-	std::ifstream fin("Library\\slang.txt");
-	std::string keyword; // processing keyword and def
-	std::string input_str;
-	while (!fin.eof())
+	std::ifstream fin;
+	switch (index)
 	{
-		std::getline(fin, input_str);
-		int i = 0;
-		while (input_str[0] != '`')
-		{
-			keyword.push_back(input_str[0]);
-			input_str.erase(input_str.begin());
-		}
-		input_str.erase(input_str.begin());
-		this->add2Tree(keyword, input_str, 1);
-
-		// std::cout << keyword << " *** " << definition << "\n";
-		keyword.clear();
+	case 0:
+		fin.open("Library\\slang.txt");
+		break;
+	case 1:
+		fin.open("Library\\emotional.txt");
+		break;
+	case 2:
+		fin.open("Library\\dictionary.txt");
+		break;
+	default:
+		break;
 	}
-	fin.close();
-}
-
-void TernarySearchTree::import_emotional()
-{
-	std::ifstream fin("Library\\emotional.txt");
-	std::string keyword; // processing keyword and def
-	std::string input_str;
-	while (!fin.eof())
-	{
-		std::getline(fin, input_str);
-		int i = 0;
-		while (input_str[0] != '\t')
-		{
-			keyword.push_back(input_str[0]);
-			input_str.erase(input_str.begin());
-		}
-		input_str.erase(input_str.begin());
-		this->add2Tree(keyword, input_str, 1);
-		// std::cout << keyword << " *** " << definition<<'\n';
-		keyword.clear();
-	}
-	fin.close();
-}
-
-void TernarySearchTree::import_dictionary()
-{
-	std::ifstream fin("Library\\dictionary.txt");
 	std::string keyword;
 	std::string input_str;
 	while (!fin.eof())

@@ -1,5 +1,4 @@
 #include "functions.h"
-#include <iostream>
 
 void deletetree(TernaryTreeNode* root)
 {
@@ -14,9 +13,10 @@ void deletetree(TernaryTreeNode* root)
 
 void createSet(TernarySearchTree* listOfTree)
 {
-	listOfTree[0].import_slang();
-	listOfTree[1].import_emotional();
-	listOfTree[2].import_dictionary();
+	for (int i = 0;i < NUMofSET;++i)
+	{
+		listOfTree[i].import_dictionary(i);
+	}
 }
 
 int childOfNode(TernaryTreeNode* node)//return number of child
@@ -31,19 +31,55 @@ int childOfNode(TernaryTreeNode* node)//return number of child
 	return i;
 }
 
-void printTree(TernaryTreeNode* root, std::string str)
+void helper_saveTree(TernaryTreeNode* root, std::string str,int index)
 {
 	if (!root)
 		return;
 	if (root->definition)
 	{
 		str.push_back(root->ch);
-		std::cout << str << "*";//str hoan chinh o day
+		std::ofstream fout;
+		switch (index)
+		{
+		case 0://slang
+			fout.open("Library\\slang.txt",std::ios::app);
+			break;
+		case 1://emotion
+			fout.open("Library\\emotional.txt",std::ios::app);
+			break;
+		case 2://dictionary
+			fout.open("Library\\dictionary.txt",std::ios::app);
+			break;
+		default:
+			break;
+		}
+		fout << str << "  " << *root->definition << "\n";
+		fout.close();
 		str.pop_back();
 	}
-	printTree(root->left, str);
+	helper_saveTree(root->left, str,index);
 	str.push_back(root->ch);
-	printTree(root->mid, str);
+	helper_saveTree(root->mid, str,index);
 	str.pop_back();
-	printTree(root->right, str);
+	helper_saveTree(root->right, str,index);
+}
+
+void saveTree(TernaryTreeNode* root, int index)
+{
+	std::string str = "";
+	helper_saveTree(root, str, index);
+}
+
+void saveAllTree(TernarySearchTree*listOfTree)
+{
+	std::ofstream fA("slang.txt");
+	fA.close();
+	std::ofstream fB("emotional.txt");
+	fB.close();
+	std::ofstream fC("dictionary.txt");
+	fC.close();
+	for (int i = 0;i < NUMofSET;++i)
+	{
+		saveTree(listOfTree[i].getRoot(), i);
+	}
 }
