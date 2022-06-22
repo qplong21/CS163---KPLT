@@ -1,5 +1,4 @@
 # Từ điển 
-## Project nhóm KPLT (APCS2)
 
 ## Tính năng
 
