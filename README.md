@@ -1,4 +1,4 @@
-# Từ điển 
+# Từ điển (KPLT - APCS2)
 
 ## Tính năng
 
