@@ -3,5 +3,4 @@
 
 void header() {
 	gotoxy(4, 0);
-	cout << 
 }
