@@ -142,7 +142,6 @@ void TernarySearchTree::addNewWordToDict() {
 	std::cin.ignore(1000, '\n');
 	std::cout << "Please enter the definition of the word: ";
 	std::getline(std::cin, definition);
-	std::cin.ignore(10000, '\n');
 	add2Tree(keyword, definition, 0);
 }
 void TernarySearchTree::add2Tree(std::string keyword, std::string definition, bool importing)
@@ -179,6 +178,7 @@ void TernarySearchTree::add2Tree(std::string keyword, std::string definition, bo
 							editKeyword(tem, newDefinition);
 							std::cout << "Update new definition successfully for " << keyword << "\n";
 						}
+						return;
 					}
 				}
 				else
@@ -300,7 +300,7 @@ void TernarySearchTree::import_slang()
 			input_str.erase(input_str.begin());
 		}
 		input_str.erase(input_str.begin());
-		this->add2Tree(keyword, input_str,1);
+		this->add2Tree(keyword, input_str, 1);
 
 		// std::cout << keyword << " *** " << definition << "\n";
 		keyword.clear();
@@ -323,7 +323,7 @@ void TernarySearchTree::import_emotional()
 			input_str.erase(input_str.begin());
 		}
 		input_str.erase(input_str.begin());
-		this->add2Tree(keyword, input_str,1);
+		this->add2Tree(keyword, input_str, 1);
 		// std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
 	}
@@ -351,7 +351,7 @@ void TernarySearchTree::import_dictionary()
 				break;
 			}
 		}
-		this->add2Tree(keyword, input_str,1);
+		this->add2Tree(keyword, input_str, 1);
 		// std::cout << keyword << " *** " << definition<<'\n';
 		keyword.clear();
 	}
@@ -442,7 +442,7 @@ void TernarySearchTree::deleteKeword(std::string keyword)
 			breakpoint->right = nullptr;
 		else
 			return;
-		for (int i = 0;i < myVec.size();++i)
+		for (int i = 0; i < myVec.size(); ++i)
 		{
 			delete myVec[i];
 		}
