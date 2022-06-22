@@ -5,15 +5,20 @@
 
 int main()
 {
-	/*TernarySearchTree listOfTree[NUMofSET];//Long dang test cai nay
-	createSet(listOfTree);
-	for (int i = 0; i < 3; ++i)
+	srand(time(NULL)); //khoi tao random//Tung dang test cai nay
+	TernarySearchTree listOfTree[NUMofSET];
+	createSet(listOfTree);//khoi tao
+
+
+	//std::string s;//thu search
+	//do {
+	//	std::getline(std::cin, s);
+	//	listOfTree[2].search4keyword(s);//list of tree [2] la dictionary
+	//} while (s != "");
+	std::string str = "";
+	printTree(listOfTree[2].getRoot(), str);
+	for (int i = 0; i < 3; ++i)//xoa
 	{
 		listOfTree[i].deleteTree();
-	}*/
-	srand(time(NULL)); //khoi tao random//Tung dang test cai nay
-	TernarySearchTree arr_of_tree;
-	arr_of_tree.import_dictionary();
-	arr_of_tree.getRandomWord();
-	arr_of_tree.deleteTree();
+	}
 }

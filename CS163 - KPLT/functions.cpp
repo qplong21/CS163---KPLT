@@ -30,3 +30,20 @@ int childOfNode(TernaryTreeNode* node)//return number of child
 		++i;
 	return i;
 }
+
+void printTree(TernaryTreeNode* root, std::string str)
+{
+	if (!root)
+		return;
+	if (root->definition)
+	{
+		str.push_back(root->ch);
+		std::cout << str << "*";//str hoan chinh o day
+		str.pop_back();
+	}
+	printTree(root->left, str);
+	str.push_back(root->ch);
+	printTree(root->mid, str);
+	str.pop_back();
+	printTree(root->right, str);
+}
