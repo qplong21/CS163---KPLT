@@ -72,11 +72,14 @@ void saveTree(TernaryTreeNode* root, int index)
 
 void saveAllTree(TernarySearchTree*listOfTree)
 {
-	std::ofstream fA("slang.txt");
+	std::ofstream fA("Library\\slang.txt");
+	fA << "";
 	fA.close();
-	std::ofstream fB("emotional.txt");
+	std::ofstream fB("Library\\emotional.txt");
+	fB << "";
 	fB.close();
-	std::ofstream fC("dictionary.txt");
+	std::ofstream fC("Library\\dictionary.txt");
+	fC << "";
 	fC.close();
 	for (int i = 0;i < NUMofSET;++i)
 	{
