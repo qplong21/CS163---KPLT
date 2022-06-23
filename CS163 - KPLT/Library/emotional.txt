@@ -496,7 +496,6 @@ KUTGW  Keep up the good work
 KWIM  Know what I mean?
 L  Laugh
 L8  Laugh
-L8R  Laugh
 L8R    Later
 L8R G8R  Later gator
 LAB  Life's a bitch
