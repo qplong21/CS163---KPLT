@@ -36,6 +36,7 @@ n  The letter N
 :-&  User is tongue tied.
 :-(  boo hoo
 :-)  ha ha
+:-)-  ha ha
 :-)-8  User is a Big girl.
 :-)~  User drools.
 :-*  User just ate something sour.
@@ -93,6 +94,7 @@ n  The letter N
 >;->  Winky and devil combined. A very lewd remark was just made.
 >U  Screw you!
 ?  Huh?
+?4  Huh?
 ?4U  Question for you
 @:-)  User is wearing a turban.
 @=  User is pro-nuclear war.
@@ -125,6 +127,7 @@ AWOL  Absent without leave
 AYOR  At your own risk
 AYPI?  And your point is?
 B  Back
+B-  Back
 B-)  User wears horn-rimmed glasses.
 B/C  Because
 B/F  Boyfriend
@@ -136,10 +139,13 @@ BAG  Busting a gut
 BAK  Back at the keyboard
 BBIAB  Be back in a bit
 BBL  Be back later
+BBLB  Be back later
+BBLBN  Be back later
 BBLBNTSBO...  Be back later but not to soon because of...
 BBR  Burnt beyond repair
 BBS  Be back soon
 BC  Because
+BCN  Because
 BCNU  Be Seein' You
 BEG  Big evil grin
 BF  Boyfriend
@@ -168,6 +174,7 @@ BS  Big smile
 BSF  But seriously folks
 BST  But seriously though
 BTA  But then again
+BTAI  But then again
 BTAIM  Be that as it may
 BTDT  Been there done that
 BTOBD  Be there or be dead
@@ -183,6 +190,7 @@ C&G  Chuckle and grin
 C=:-)  User is a chef.
 C=}>;*{))  A drunk, devilish chef with a toupee in an updraft, a mustache, and a double chin.
 CAD  Ctrl-alt-delete
+CADE  Ctrl-alt-delete
 CADET  Can't add, doesn't even try
 CDIWY  Couldn't do it without you
 CFN  Ciao for now
@@ -203,10 +211,13 @@ CTS  Changing the subject
 CU  See you
 CU2  See you too
 CUL  See you later
+CUL8  See you later
 CUL8R  See you later
 CWOT  Complete waste of time
 CWYL  Chat with you later
 CYA  See ya
+CYAL  See ya
+CYAL8  See ya
 CYAL8R  See ya later
 CYO  See you online
 DBA  Doing business as
@@ -219,6 +230,8 @@ DIKU  Do I know you?
 DITYID  Did I tell you I'm distressed
 DIY  Do it yourself
 DL  Dead link
+DLT  Dead link
+DLTB  Dead link
 DLTBBB  Don't let the bad bugs bite
 DMMGH  Don't make me get hostile
 DND  Do not disturb
@@ -247,6 +260,7 @@ EOM  End of message
 EOT  End of thread
 ETLA  Extended three letter acronym
 F  Female
+F/  Female
 F/F  Face to face
 F2F  Face to face
 FAQ  Frequently asked questions
@@ -269,30 +283,42 @@ FOTCL  Falling of the chair laughing
 FTF  Face to face
 FTTT  From time to time
 FU  F*cked up
+FUB  F*cked up
+FUBA  F*cked up
 FUBAR  F*cked up beyond all recognition
 FUD  Fear, uncertainty and doubt
 FURTB  Full up ready to burst (about hard disk drives)
 FW  Forward
+FWI  Forward
 FWIW  For what it's worth
 FYA  For your amusement
 FYE  For your entertainment
 FYEO  For your eyes only
 FYI  For your information
 G  Grin
+G&  Grin
+G&B  Grin
 G&BIT  Grin and bear it
 G2B  Going to bed
 G2G  Got to go
+G2GG  Got to go
+G2GGS  Got to go
 G2GGS2D  Got to go get something to drink
 GA  Good afternoon
+GAF  Good afternoon
+GAFI  Good afternoon
 GAFIA  Get away from it all
 GAL  Get a life
 GAS  Greetings and salutations
 GBH  Great big hug
+GBH&  Great big hug
 GBH&K  Great big huh and kisses
 GBR  Garbled beyond recovery
 GBY  God bless you
 GD&H  Grinning, ducking and hiding
 GD&R  Grinning, ducking and running
+GD&RA  Grinning, ducking and running
+GD&RAF  Grinning, ducking and running
 GD&RAFAP  Grinning, ducking and running as fast as possible
 GD&REF&F  grinning, ducking and running even further and faster
 GD&RF  Grinning, ducking and running fast
@@ -301,16 +327,22 @@ GD&W  Grin, duck and wave
 GDW  Grin, duck and wave
 GE  Good evening
 GF  Girlfriend
+GFE  Girlfriend
+GFET  Girlfriend
 GFETE  Grinning from ear to ear
 GFN  Gone for now
 GFU  Good for you
 GG  Good game
+GGU  Good game
 GGU2  Good game you two
 GIGO  Garbage in garbage out
 GJ  Good job
 GL  Good luck
+GL&  Good luck
+GL&G  Good luck
 GL&GH  Good luck and good hunting
 GM  Good morning
+GMA  Good morning
 GMAB  Give me a break
 GMTA  Great minds think alike
 GN  Good night
@@ -324,6 +356,7 @@ GTG  Got to go
 GTSY  Glad to see you
 GW  Good work
 H  Hug
+H&  Hug
 H&K  Hug and kiss
 H/O  Hold on
 HAG1  Have a good one
@@ -337,6 +370,7 @@ HB  Hug back
 HDYWTDT  How do you work this dratted thing
 HF  Have fun
 HH  Holding hands
+HHI  Holding hands
 HHIS  Hanging head in shame
 HHJK  Ha ha, just kidding
 HHOJ  Ha ha, only joking
@@ -352,7 +386,8 @@ HMWK  Homework
 HOAS  Hold on a second
 HSIK  How should i know
 HT  Hi there
-HTH  Hope this helps
+HTH  Hi there
+HTHB  Hi there
 HTHBE  Hope this has been enlightening
 HYLMS  Hate you like my sister
 IAAA  I am an accountant
@@ -365,6 +400,8 @@ IANAA  I am not an accountant
 IANAL  I am not a lawyer
 IBN  I'm bucked naked
 IC  I see
+ICO  I see
+ICOC  I see
 ICOCBW  I could of course be wrong
 IDC  I don't care
 IDGI  I don't get it
@@ -379,18 +416,23 @@ IHTFP  I hate this fountain place
 IHU  I hate you
 IHY  I hate you
 II  I’m impressed
-IIR  If I recall
+IIR  I’m impressed
 IIRC  If I recall correctly
 IIT  I’m impressed too
 IJWTK  I just want to know
 IJWTS  I just want to say
 IK  I know
+IKW  I know
+IKWU  I know
 IKWUM  I know what you mean
 ILBCNU  I"ll be seeing you
 ILU  I love you
 ILY  I love you
+ILYF  I love you
+ILYFA  I love you
 ILYFAE  I love you forever and ever
 IM  Instant message
+IMA  Instant message
 IMAO  In my arrogant opinion
 IMBO  In my bloody opinion
 IMCO  In my considered opinion
@@ -399,8 +441,10 @@ IMFAO  In my fooling arrogant opinion
 IMHO  In my humble opinion
 IMNSHO  In my, not so humble opinion
 IMO  In my opinion
+IMOB  In my opinion
 IMOBO  In my own biased opinion
 IMP  I might be pregnant
+IMPO  I might be pregnant
 IMPOV  In my point of view
 IMS  I am sorry
 INAL  I'm not a lawyer
@@ -411,6 +455,7 @@ IRC  Internet Relay Chat; an multiuser, multinetwork conversing platform (http:/
 IRL  In real life
 IRMFI  I reply merely for information
 IS  I'm sorry
+IST  I'm sorry
 ISTM  It seems to me
 ISTR  I seem to recall
 ISWYM  I see what you mean
@@ -438,6 +483,7 @@ JP  Just playing
 JTLYK  Just to let you know
 JW  Just wondering
 K  Kiss (rarely used)
+K:  Kiss (rarely used)
 K:P  User is a little kid with a propeller beenie.
 KB  Kiss back
 KHYF  Know how you feel
@@ -449,7 +495,9 @@ KOTL  Kiss on the lips
 KUTGW  Keep up the good work
 KWIM  Know what I mean?
 L  Laugh
-L8R  Later
+L8  Laugh
+L8R  Laugh
+L8R    Later
 L8R G8R  Later gator
 LAB  Life's a bitch
 LBR  Little boys room
@@ -465,6 +513,8 @@ LNK  Love and kisses
 LOL  Lots of love
 LOLA  Laughing out loud again
 LOML  Light of my life (or love of my life)
+LOMLI  Light of my life (or love of my life)
+LOMLIL  Light of my life (or love of my life)
 LOMLILY  Light of my life, I love you
 LOOL  Laughing out outrageously loud
 LSHIPMP  Laughing so hard I pissed my pants
@@ -478,6 +528,7 @@ LUWAMH  Love you with all my heart
 LY  Love ya
 LYK  Let you know
 LYL  Love ya lots
+LYLA  Love ya lots
 LYLAB  Love ya like a brother
 LYLAS  Love ya like a sister
 M  Male
@@ -485,6 +536,7 @@ M8  Mate
 MB  Maybe
 MYOB  Mind your own business
 N  In
+N/  In
 N/C  Not cool
 N/M  Never mind / nothing much
 N/S  No shit
@@ -511,6 +563,7 @@ O |-)  Net.religion
 O-)  Megaton Man On Patrol!(or else, user is a scuba diver)
 OBTW  Oh, by the way
 OF  On fire
+OFI  On fire
 OFIS  On floor with stitches
 OH  Off hand
 OIC  Oh I see
@@ -520,6 +573,7 @@ OM  Old man (husband, boyfriend)
 OMG  Oh my god / gosh / goodness
 OOC  Out of character
 OT  Off topic / other topic
+OTO  Off topic / other topic
 OTOH  On the other hand
 OTP  On the phone
 OTTOMH  Off the top of my head
@@ -529,6 +583,8 @@ PEBCAK  Problem exists between chair and keyboard
 PLS  Please
 PLZ  Please
 PM  Private message
+PMF  Private message
+PMFJ  Private message
 PMFJI  Pardon me for jumping in
 PMJI  Pardon my jumping in (Another way for PMFJI)
 PMP  Peed my pants
@@ -548,6 +604,8 @@ QT  Cutie
 RCED  Reconnected
 RE  Hi again (same as re's)
 ROFL  Rolling on floor laughing
+ROFLO  Rolling on floor laughing
+ROFLOL  Rolling on floor laughing
 ROFLOLAY  Rolling on floor laughing out loud at you
 ROFLOLTSDMC  Rolling on floor laughing out loud tears streaming down my cheeks
 ROFLOLUTS  Rolling on floor laughing out loud unable to speak
@@ -560,11 +618,14 @@ RUOK?  Are you okay?
 RUTTM  Are you talking to me
 RVD  Really very dumb
 S  Smile
+S2  Smile
 S2R  Send to receive
 SAMAGAL  Stop annoying me and get a live
 SCNR  Sorry, could not resist
 SETE  Smiling ear to ear
 SH  So hot
+SHI  So hot
+SHIC  So hot
 SHICPMP  So happy I could piss my pants
 SHID  Slaps head in disgust
 SHMILY  See how much I love you
@@ -572,6 +633,7 @@ SIM  Shit, it's Monday
 SITWB  Sorry, in the wrong box
 SNAFU  Situation normal, all fed up
 SO  Significant other
+SOH  Significant other
 SOHF  Sense of humor failure
 SOMY  Sick of me yet?
 SPAM  Stupid persons' advertisement
@@ -581,9 +643,11 @@ SWAK  Sealed with a kiss
 SWALK  Sweet, with all love, kisses
 SWL  Screaming with laughter
 SYS  See you soon
+SYSO  See you soon
 SYSOP  System operator
 T  Tickle
-TA  Thanks again
+TA  Tickle
+TAF  Tickle
 TAFN  That's all for now
 TBA  To be announced
 TBH  To be honest
@@ -608,21 +672,27 @@ TTFN  Ta ta for now
 TTT  Thought that, too
 TTUL  Talk to you later
 TTYL  Talk to you later
+TTYLM  Talk to you later
 TTYLMF  Talk to you later my friend
 TU  Thank you
 TWMA  Till we meet again
 TX  Thanx
 TY  Thank you
+TYV  Thank you
 TYVM  Thank you very much
 U2  You too
 UR  Your
+URA  Your
+URAQ  Your
 URAQT!  You are a cutie!
 UW  You're welcom
 VBG  Very big grin
 VBS  Very big smile
 W  Wink
+W/  Wink
 W/E  Whatever
 W8  Wait
+W8A  Wait
 W8AM  Wait a minute
 WAY  Who are you
 WB  Welcome back
@@ -648,6 +718,7 @@ WYSIWYG  What you see is what you get
 X-(  Net.suicide
 XTLA  Extended three letter acronym
 Y  Why?
+Y2  Why?
 Y2K  You're too kind
 YATB  You are the best
 YBS  You'll be sorry
@@ -655,12 +726,14 @@ YG  Young gentleman
 YHBBYBD  You'd have better bet your bottom dollar
 YL  You 'll live
 YM  You mean
+YMM  You mean
 YMMD  You've made my day
 YMMV  Your mileage may vary
 YOYO  You're on your own
 YT?  You there?
 YVW  You're very welcome
 YW  You are welcome
+YWI  You are welcome
 YWIA  You're welcome in advance
 YWTKM  You want to kiss me
 YWTLM  You want to love me
@@ -675,6 +748,8 @@ YY4U  Two wise for you
 ^o  Snoring.
 `:-)  User shaved one of his eyebrows off this morning.
 d8=  Your pet beaver is wearing goggles and a hard hat.
+n0  The letter N
+n00  The letter N
 n00b  Leetspeak for beginner
 {:-)  User wears a toupee.
 |-)  hee hee
