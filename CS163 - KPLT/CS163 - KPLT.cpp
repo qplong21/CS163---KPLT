@@ -15,7 +15,7 @@ int main()
 	do {
 		std::getline(std::cin, in);
 	} while (in.length() < 3);
-	listOfTree[2].search4Definition(in).display();
+	listOfTree[2].search4Definition(in).display(in);
 
 	for (int i = 0; i < 3; ++i)//xoa
 	{

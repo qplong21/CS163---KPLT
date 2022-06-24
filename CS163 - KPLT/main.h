@@ -23,7 +23,7 @@ struct LinkedListNode {
 struct LinkedList {
 	LinkedListNode* root = nullptr;
 	void insert(WordAndDef wad);
-	void display();
+	void display(const std::string& definition);
 };
 
 struct TernaryTreeNode

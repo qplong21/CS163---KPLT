@@ -468,13 +468,14 @@ void LinkedList::insert(WordAndDef wad) {
 	}
 	current->next = insert;
 }
-void LinkedList::display() {
+void LinkedList::display(const std::string& definition) {
 	if (!this->root) {
 		std::cout << "No result";
 		return;
 	}
 	LinkedListNode* current = this->root;
-	int count = 0;
+	int count = 1;
+	std::cout << "Words that contains '" << definition << "' in its definition:\n";
 	while (current) {
 		std::cout << count++ << ". " << current->wad.word << " - " << current->wad.definition << "\n\n";
 		current = current->next;
