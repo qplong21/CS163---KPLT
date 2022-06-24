@@ -17,7 +17,7 @@ struct WordAndDef {
 
 struct LinkedListNode {
 	WordAndDef wad;
-	LinkedListNode* next;
+	LinkedListNode* next = nullptr;
 };
 
 struct LinkedList {

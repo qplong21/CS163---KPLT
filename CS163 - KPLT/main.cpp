@@ -467,7 +467,7 @@ void LinkedList::insert(WordAndDef wad) {
 		return;
 	}
 	LinkedListNode* current = this->root;
-	while (current && current->next) {
+	while (current->next) {
 		current = current->next;
 	}
 	current->next = insert;
