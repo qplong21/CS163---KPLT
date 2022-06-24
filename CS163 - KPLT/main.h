@@ -36,7 +36,7 @@ public:
 	void add2Tree(std::string keyword, std::string definition, bool importing = true);
 	void editKeyword(TernaryTreeNode*& tem, std::string newDefinition);
 	TernaryTreeNode* search4keyword(std::string keyword, bool normal = true);
-	void import_dictionary(int index);
+	void import_dictionary(int index, bool forReset = false);
 	int size;
 	TernaryTreeNode* getRandomWord(bool normal = true, int i = 0);
 	void guessRandomWord();

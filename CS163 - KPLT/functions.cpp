@@ -86,3 +86,13 @@ void saveAllTree(TernarySearchTree*listOfTree)
 		saveTree(listOfTree[i].getRoot(), i);
 	}
 }
+
+void resetAllDictionary(TernarySearchTree* listOfTree)
+{
+	for (int i = 0;i < NUMofSET;++i)
+	{
+		listOfTree[i].deleteTree();
+		listOfTree[i].import_dictionary(i, 1);
+	}
+	saveAllTree(listOfTree);
+}

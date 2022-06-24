@@ -287,22 +287,38 @@ TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool nor
 }
 
 
-void TernarySearchTree::import_dictionary(int index)
+void TernarySearchTree::import_dictionary(int index, bool forReset)
 {
 	std::ifstream fin;
-	switch (index)
+	if (forReset)
 	{
-	case 0:
-		fin.open("Library\\slang.txt");
-		break;
-	case 1:
-		fin.open("Library\\emotional.txt");
-		break;
-	case 2:
-		fin.open("Library\\dictionary.txt");
-		break;
-	default:
-		break;
+		switch (index)
+		{
+		case 0:
+			fin.open("DefaultLibrary\\slang.txt");
+			break;
+		case 1:
+			fin.open("DefaultLibrary\\emotional.txt");
+			break;
+		case 2:
+			fin.open("DefaultLibrary\\dictionary.txt");
+			break;
+		}
+	}
+	else
+	{
+		switch (index)
+		{
+		case 0:
+			fin.open("Library\\slang.txt");
+			break;
+		case 1:
+			fin.open("Library\\emotional.txt");
+			break;
+		case 2:
+			fin.open("Library\\dictionary.txt");
+			break;
+		}
 	}
 	std::string keyword;
 	std::string input_str;
@@ -323,7 +339,8 @@ void TernarySearchTree::import_dictionary(int index)
 			}
 		}
 		this->add2Tree(keyword, input_str, 1);
-		// std::cout << keyword << " *** " << definition<<'\n';
+		/*if(index==2&&forReset==1)
+			std::cout << keyword << " *** " << input_str<<'\n';*/
 		keyword.clear();
 	}
 	fin.close();

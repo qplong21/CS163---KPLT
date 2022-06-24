@@ -1,8 +1,10 @@
 #include "main.h"
 #include "functions.h"
-
+#include "Screen.h"
 int main()
 {
+	header();
+	//system("pause");
 	srand(time(NULL)); //khoi tao random//Tung dang test cai nay
 	TernarySearchTree listOfTree[NUMofSET];
 	createSet(listOfTree);//khoi tao
