@@ -10,9 +10,7 @@ int main()
 	saveAllTree(listOfTree);
 
 
-	listOfTree[2].search4keyword("Apple");
-	listOfTree[2].addNewWordToDict();
-	listOfTree[2].search4keyword("Apple");
+	listOfTree[2].inorderTraversal();
 
 	for (int i = 0; i < 3; ++i)//xoa
 	{

@@ -10,6 +10,16 @@
 
 #define NUMofSET 3
 
+struct LinkedListNode {
+	std::string str;
+	LinkedListNode* next;
+};
+
+struct LinkedList {
+	LinkedListNode* root;
+	void insert(std::string str);
+};
+
 struct TernaryTreeNode
 {
 	char ch;
@@ -34,7 +44,10 @@ public:
 	void addNewWordToDict();
 	void deleteKeword(std::string keyword);
 	TernaryTreeNode* getRoot();
+	void inorderTraversal();
+	LinkedList search4Definition(std::string definition);
 private:
+	void inorderTraversalAux(TernaryTreeNode* node, std::string currentStr);
 	TernaryTreeNode* root = nullptr;
 	std::pair<std::string, std::string> wordAndDefinition[4]; //de lam guess game
 };

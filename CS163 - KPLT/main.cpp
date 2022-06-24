@@ -425,3 +425,19 @@ TernaryTreeNode* TernarySearchTree::getRoot()
 {
 	return this->root;
 }
+void TernarySearchTree::inorderTraversal() {
+	inorderTraversalAux(this->root, "");
+}
+void TernarySearchTree::inorderTraversalAux(TernaryTreeNode* node, std::string currentStr) {
+	if (!node)
+		return;
+	inorderTraversalAux(node->left, currentStr);
+	if (node->definition) {
+		std::cout << currentStr << node->ch << "\n";
+	}
+	inorderTraversalAux(node->mid, currentStr + node->ch);
+	inorderTraversalAux(node->right, currentStr);
+}
+void LinkedList::insert(std::string str) {
+	LinkedListNode* insert =
+}
