@@ -11,7 +11,7 @@ int main()
 
 	saveAllTree(listOfTree);
 
-	listOfTree[2].search4Definition("Public air transport").display("Public air transport");
+	listOfTree[2].search4Definition("aircraft").display("aircraft");
 
 	/*listOfTree[2].search4keyword("APPLE");*/
 
