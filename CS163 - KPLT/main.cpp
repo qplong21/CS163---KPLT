@@ -303,8 +303,6 @@ void TernarySearchTree::import_dictionary(int index, bool forReset)
 		case 2:
 			fin.open("DefaultLibrary\\dictionary.txt");
 			break;
-		default:
-			break;
 		}
 	}
 	else
@@ -319,8 +317,6 @@ void TernarySearchTree::import_dictionary(int index, bool forReset)
 			break;
 		case 2:
 			fin.open("Library\\dictionary.txt");
-			break;
-		default:
 			break;
 		}
 	}
@@ -343,7 +339,8 @@ void TernarySearchTree::import_dictionary(int index, bool forReset)
 			}
 		}
 		this->add2Tree(keyword, input_str, 1);
-		// std::cout << keyword << " *** " << definition<<'\n';
+		/*if(index==2&&forReset==1)
+			std::cout << keyword << " *** " << input_str<<'\n';*/
 		keyword.clear();
 	}
 	fin.close();
