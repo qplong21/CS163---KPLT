@@ -11,8 +11,11 @@ int main()
 
 	saveAllTree(listOfTree);
 
-
-	listOfTree[2].inorderTraversal();
+	std::string in;
+	do {
+		std::getline(std::cin, in);
+	} while (in.length() < 3);
+	listOfTree[2].search4Definition(in).display();
 
 	for (int i = 0; i < 3; ++i)//xoa
 	{

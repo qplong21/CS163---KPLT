@@ -455,6 +455,48 @@ void TernarySearchTree::inorderTraversalAux(TernaryTreeNode* node, std::string c
 	inorderTraversalAux(node->mid, currentStr + node->ch);
 	inorderTraversalAux(node->right, currentStr);
 }
-void LinkedList::insert(std::string str) {
-	LinkedListNode* insert =
+void LinkedList::insert(WordAndDef wad) {
+	LinkedListNode* insert = new LinkedListNode;
+	insert->wad = wad;
+	if (!this->root) {
+		root = insert;
+		return;
+	}
+	LinkedListNode* current = this->root;
+	while (current && current->next) {
+		current = current->next;
+	}
+	current->next = insert;
+}
+void LinkedList::display() {
+	if (!this->root) {
+		std::cout << "No result";
+		return;
+	}
+	LinkedListNode* current = this->root;
+	int count = 0;
+	while (current) {
+		std::cout << count++ << ". " << current->wad.word << " - " << current->wad.definition << "\n\n";
+		current = current->next;
+	}
+}
+void TernarySearchTree::inorderTraversalForSearch(TernaryTreeNode* node, std::string currentStr, std::string definition, LinkedList& ll) {
+	if (!node)
+		return;
+	inorderTraversalForSearch(node->left, currentStr, definition, ll);
+	if (node->definition) {
+		if ((*node->definition).find(definition) != std::string::npos) { //definition la substr cua cai nay
+			WordAndDef wad;
+			wad.word = currentStr + node->ch;
+			wad.definition = *node->definition;
+			ll.insert(wad);
+		}
+	}
+	inorderTraversalForSearch(node->mid, currentStr + node->ch, definition, ll);
+	inorderTraversalForSearch(node->right, currentStr, definition, ll);
+}
+LinkedList TernarySearchTree::search4Definition(std::string definition) {
+	LinkedList ans;
+	inorderTraversalForSearch(this->root, "", definition, ans);
+	return ans;
 }
