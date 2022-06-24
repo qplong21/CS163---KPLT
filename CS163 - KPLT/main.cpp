@@ -234,6 +234,10 @@ void TernarySearchTree::editKeyword(TernaryTreeNode*& tem, std::string newDefini
 }
 TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool normal)
 {
+	for (int i = 0; i < keyword.length(); i++) {
+		keyword[i] = tolower(keyword[i]);
+	}
+	keyword[0] = toupper(keyword[0]); //tranh truong case sensitive tim kh ra du ta do co
 	// those line with "//" at the end is for debug
 	// chinh cho viet hoa thuong search van duoc
 	TernaryTreeNode* tem = this->root;

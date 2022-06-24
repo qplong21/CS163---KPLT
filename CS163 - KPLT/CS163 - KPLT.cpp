@@ -11,11 +11,13 @@ int main()
 
 	saveAllTree(listOfTree);
 
-	std::string in;
+	/*std::string in;
 	do {
 		std::getline(std::cin, in);
 	} while (in.length() < 3);
-	listOfTree[2].search4Definition(in).display(in);
+	listOfTree[2].search4Definition(in).display(in);*/
+
+	listOfTree[2].search4keyword("APPLE");
 
 	for (int i = 0; i < 3; ++i)//xoa
 	{
