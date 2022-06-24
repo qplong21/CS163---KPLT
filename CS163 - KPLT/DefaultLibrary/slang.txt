@@ -1,6 +1,4 @@
 n  The letter N
-Æ  Registered Trademark Symbol
-ô  Trademark
 #1  Number one
 $  Dollar| money
 $_  Dollar| money
