@@ -486,7 +486,12 @@ void TernarySearchTree::inorderTraversalForSearch(TernaryTreeNode* node, std::st
 		return;
 	inorderTraversalForSearch(node->left, currentStr, definition, ll);
 	if (node->definition) {
-		if ((*node->definition).find(definition) != std::string::npos) { //definition la substr cua cai nay
+		for (int i = 0; i < definition.length(); i++) {
+			definition[i] = tolower(definition[i]);
+		}
+		std::string toUpperFirst = definition;
+		toUpperFirst[0] = toupper(toUpperFirst[0]); //de phong truong hop chi co chu o dau viet hoa no bao kh ra
+		if ((*node->definition).find(definition) != std::string::npos || (*node->definition).find(toUpperFirst) != std::string::npos) { //definition la substr cua cai nay
 			WordAndDef wad;
 			wad.word = currentStr + node->ch;
 			wad.definition = *node->definition;
