@@ -3,3 +3,4 @@
 
 void header();
 int menuStart();
+int convert(std::string str);
