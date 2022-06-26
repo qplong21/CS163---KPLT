@@ -326,6 +326,7 @@ void TernarySearchTree::import_dictionary(int index, bool forReset)
 	}
 	std::string keyword;
 	std::string input_str;
+	//int c = 0;
 	while (!fin.eof())
 	{
 		std::getline(fin, input_str);
@@ -346,7 +347,9 @@ void TernarySearchTree::import_dictionary(int index, bool forReset)
 		/*if(index==2&&forReset==1)
 			std::cout << keyword << " *** " << input_str<<'\n';*/
 		keyword.clear();
+		//++c;
 	}
+	//std::cout << c<<"\n";//dem so tu
 	fin.close();
 }
 
