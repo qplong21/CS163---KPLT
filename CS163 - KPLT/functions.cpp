@@ -96,3 +96,19 @@ void resetAllDictionary(TernarySearchTree* listOfTree)
 	}
 	saveAllTree(listOfTree);
 }
+
+void changeSet(int& currentSet)
+{
+	std::cout << "1.Slang set\n2.Emotion set\n3.Dictionary set\nPls Choose your set:";
+	int i;
+	std::cin >> i;
+	if (1 <= i && i <= 3)
+	{
+		currentSet = i - 1;
+		return;
+	}
+	else
+	{
+		currentSet = 2;
+	}
+}
