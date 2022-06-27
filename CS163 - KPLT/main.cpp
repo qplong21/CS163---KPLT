@@ -174,9 +174,12 @@ TernaryTreeNode* TernarySearchTree::getRandomWord2(bool normal, int i) { //danh 
 	return tem;
 
 }
-void TernarySearchTree::guessRandomWord() {
+void TernarySearchTree::guessRandomWord(bool nonWord) {
 	for (int i = 0; i < 4; i++) {
-		getRandomWord(false, i);
+		if (nonWord)
+			getRandomWord2(false, i);
+		else
+			getRandomWord(false, i);
 	}
 	int chooseWord = rand() % 4;
 	std::cout << "The word has this definition: \n" << wordAndDefinition[chooseWord].second << "\nPlease choose the correct word: \n";
@@ -195,7 +198,10 @@ void TernarySearchTree::guessRandomWord() {
 }
 void TernarySearchTree::guessRandomDefinition(bool nonWord) {
 	for (int i = 0; i < 4; i++) {
-		getRandomWord(false, i);
+		if (nonWord)
+			getRandomWord2(false, i);
+		else
+			getRandomWord(false, i);
 	}
 	int chooseWord = rand() % 4;
 	std::cout << "The word is: \n" << wordAndDefinition[chooseWord].first << "\nPlease choose the correct definition: \n";
@@ -212,7 +218,7 @@ void TernarySearchTree::guessRandomDefinition(bool nonWord) {
 		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].second;
 	}
 }
-void TernarySearchTree::addNewWordToDict(bool nonWord) {
+void TernarySearchTree::addNewWordToDict() {
 	std::string keyword, definition;
 	std::cout << "Please enter the word you want to add: ";
 	std::getline(std::cin, keyword);
