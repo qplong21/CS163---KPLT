@@ -29,9 +29,9 @@ int main()
 	createSet(listOfTree);//khoi tao
 	int currentSet = 2;//mac dinh set se bang 2-dictionary 
 	
-	/*listOfTree[currnetSet].search4Definition("British").display("British");*/
+	/*listOfTree[currentSet].search4Definition("British").display("British");*/
 
-	/*listOfTree[currnetSet].search4keyword("APPLE");*/
+	/*listOfTree[currentSet].search4keyword("APPLE");*/
 	//saveAllTree(listOfTree);
 	for (int i = 0; i < 3; ++i)//xoa
 	{
