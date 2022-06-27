@@ -27,7 +27,7 @@ int main()
 	srand(time(NULL)); //khoi tao random//Tung dang test cai nay
 	TernarySearchTree listOfTree[NUMofSET];
 	createSet(listOfTree);//khoi tao
-	int currnetSet = 2;//mac dinh set se bang 2-dictionary 
+	int currentSet = 2;//mac dinh set se bang 2-dictionary 
 	
 	/*listOfTree[currnetSet].search4Definition("British").display("British");*/
 
