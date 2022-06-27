@@ -28,7 +28,9 @@ int main()
 	TernarySearchTree listOfTree[NUMofSET];
 	createSet(listOfTree);//khoi tao
 	int currentSet = 2;//mac dinh set se bang 2-dictionary 
-	
+
+	listOfTree[1].getRandomWord2();
+
 	/*listOfTree[currentSet].search4Definition("British").display("British");*/
 
 	/*listOfTree[currentSet].search4keyword("APPLE");*/

@@ -41,12 +41,13 @@ public:
 	void deleteTree();
 	void add2Tree(std::string keyword, std::string definition, bool importing = true);
 	void editKeyword(TernaryTreeNode*& tem, std::string newDefinition);
-	TernaryTreeNode* search4keyword(std::string keyword, bool normal = true);
+	TernaryTreeNode* search4keyword(std::string keyword, bool normal = true, bool nonWord = false);
 	void import_dictionary(int index, bool forReset = false);
 	int size;
 	TernaryTreeNode* getRandomWord(bool normal = true, int i = 0);
-	void guessRandomWord();
-	void guessRandomDefinition();
+	TernaryTreeNode* getRandomWord2(bool normal = true, int i = 0);
+	void guessRandomWord(bool nonWord = false);
+	void guessRandomDefinition(bool nonWord = false);
 	void addNewWordToDict();
 	void deleteKeword(std::string keyword);
 	TernaryTreeNode* getRoot();

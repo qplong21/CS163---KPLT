@@ -97,6 +97,83 @@ TernaryTreeNode* TernarySearchTree::getRandomWord(bool normal, int i) {
 	return tem;
 
 }
+TernaryTreeNode* TernarySearchTree::getRandomWord2(bool normal, int i) { //danh cho slang va emotional dictionary
+	std::string word = "";
+
+	int c;
+	bool done = false;
+	char ch = 65 + rand() % 26;
+	std::string startChar(1, ch);
+	TernaryTreeNode* tem = nullptr;
+	bool start = true;
+	bool turned = false;
+	bool outFirstTwoChar = true;
+	while (1) {
+		if (start) {
+			do {
+				ch = 65 + rand() % 26;
+				std::string addChar(1, ch); //de check lai cai random nay no ra tu gi
+				word = startChar + addChar;
+				tem = search4keyword(word, false, true);
+			} while (!tem);
+			start = false;
+			turned = false;
+		}
+		else {
+			c = rand() % 5;
+			if (c == 0) {
+				if (tem->right && isLetter(tem->right->ch)) {
+					//phai them delete char trc o day
+					if (!turned)
+						word.pop_back();
+					tem = tem->right;
+					word += tem->ch;
+					turned = true;
+				}
+				else if (!tem->right)
+					if (tem->definition)
+						break;
+			}
+			else if (c == 1) {
+				if (tem->left && isLetter(tem->left->ch))
+				{
+					if (!turned)
+						word.pop_back();
+					tem = tem->left;
+					word += tem->ch;
+					turned = true;
+				}
+				else if (!tem->left)
+					if (tem->definition)
+						break;
+			}
+			else {
+				if (tem->mid) {
+					std::string addChar(1, tem->mid->ch);
+
+					word += addChar;
+					tem = tem->mid;
+					turned = false;
+				}
+				else if (!tem->mid)
+					if (tem->definition)
+						break;
+			}
+			//de ti kiem cach random khac
+		}
+	}
+	if (normal) {
+		std::cout << word << " - " << *tem->definition << "\n";
+	}
+	else {
+		std::pair<std::string, std::string> newPair;
+		newPair.first = word;
+		newPair.second = *tem->definition;
+		this->wordAndDefinition[i] = newPair;
+	}
+	return tem;
+
+}
 void TernarySearchTree::guessRandomWord() {
 	for (int i = 0; i < 4; i++) {
 		getRandomWord(false, i);
@@ -116,7 +193,7 @@ void TernarySearchTree::guessRandomWord() {
 		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].first;
 	}
 }
-void TernarySearchTree::guessRandomDefinition() {
+void TernarySearchTree::guessRandomDefinition(bool nonWord) {
 	for (int i = 0; i < 4; i++) {
 		getRandomWord(false, i);
 	}
@@ -135,7 +212,7 @@ void TernarySearchTree::guessRandomDefinition() {
 		std::cout << "WASTED, the correct answer is " << wordAndDefinition[chooseWord].second;
 	}
 }
-void TernarySearchTree::addNewWordToDict() {
+void TernarySearchTree::addNewWordToDict(bool nonWord) {
 	std::string keyword, definition;
 	std::cout << "Please enter the word you want to add: ";
 	std::getline(std::cin, keyword);
@@ -232,10 +309,13 @@ void TernarySearchTree::editKeyword(TernaryTreeNode*& tem, std::string newDefini
 	*tem->definition = newDefinition;
 	//de them cai save ra file nua
 }
-TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool normal)
+TernaryTreeNode* TernarySearchTree::search4keyword(std::string keyword, bool normal, bool nonWord)
 {
 	for (int i = 0; i < keyword.length(); i++) {
-		keyword[i] = tolower(keyword[i]);
+		if (!nonWord)
+			keyword[i] = tolower(keyword[i]);
+		else
+			keyword[i] = toupper(keyword[i]);
 	}
 	keyword[0] = toupper(keyword[0]); //tranh truong case sensitive tim kh ra du ta do co
 	// those line with "//" at the end is for debug
