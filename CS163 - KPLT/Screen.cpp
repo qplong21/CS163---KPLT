@@ -32,12 +32,13 @@ int menuStart() {
 	std::cout << "1. Search for a Definition of an English Word.\n";
 	std::cout << "2. Search for a Definition of a slang.\n";
 	std::cout << "3. Search for a Definition of an Emoji.\n";
-	std::cout << "4. Exit out of system.\n";
+	std::cout << "4. Guess the meaning of a word.\n";
+	std::cout << "5. Exit out of system.\n";
 	std::cout << "Option: ";
 	std::string input;
 	std::getline(std::cin, input);
 	int val = convert(input);
-	while (val <= 0 && val >= 5) {
+	while (val <= 0 && val >= 6) {
 		std::cout << "Invalid value. Try again!\n";
 		std::cout << "Option: ";
 		std::getline(std::cin, input);
