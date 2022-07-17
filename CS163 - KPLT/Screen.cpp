@@ -1,11 +1,7 @@
-#include <iostream>
-#include "console.h"
-#include <string>
+#include "Screen.h"
 
 void header() {
-	SetBGColor(15);
 	system("cls");
-	SetColor(1);
 	gotoxy(15, 0);
 	std::cout << "Welcome to Dictionary";
 	gotoxy(12, 1);
@@ -13,38 +9,30 @@ void header() {
 	gotoxy(0, 2);
 	std::cout << "__________________________________________________";
 	gotoxy(0, 4);
-	SetColor(0);
 }
 
-int convert(std::string str) {
-	int t = 0;
-	for (int i = 0; str[i] != '\0'; i++) {
-		if (str[i] >= 48 && str[i] <= 57) {
-			t = t * 10 + (str[i] - 48);
-		}
-		else
-			return -1;
-	}
-	return t;
+int convert(int choice) {
+	if (choice == 27) return 0;
+	return choice - 48;
 }
 
 int menuStart() {
+	system("cls");
+	header();
+	std::cout << "0. Exit.\n";
 	std::cout << "1. Search for a Definition of an English Word.\n";
 	std::cout << "2. Search for a Definition of a slang.\n";
 	std::cout << "3. Search for a Definition of an Emoji.\n";
 	std::cout << "4. Guess the meaning of a word.\n";
-	std::cout << "5. Exit out of system.\n";
 	std::cout << "Option: ";
-	std::string input;
-	std::getline(std::cin, input);
-	int val = convert(input);
-	while (val <= 0 && val >= 6) {
-		std::cout << "Invalid value. Try again!\n";
-		std::cout << "Option: ";
-		std::getline(std::cin, input);
-		val = convert(input);
-	}
+	int choice = _getch();
+	return convert(choice);
+}
+
+void goodbye() {
 	system("cls");
 	header();
-	return val;
+	std::cout << "Thanks for using our dictionary ^_^\n";
+	std::cout << "See you later\n\n";
+	system("pause");
 }
