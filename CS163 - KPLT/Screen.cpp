@@ -1,4 +1,8 @@
 #include "Screen.h"
+#include <string>
+using namespace std;
+
+
 
 void header() {
 	system("cls");
@@ -35,4 +39,16 @@ void goodbye() {
 	std::cout << "Thanks for using our dictionary ^_^\n";
 	std::cout << "See you later\n\n";
 	system("pause");
+}
+
+void Input(string in) {
+	if (in[0] >= 'a' && in[0] <= 'z') {
+		in[0] = in[0] - 32;
+	}
+	for (int i = 1; in[i] != '\0'; i++) {
+		if (in[i] >= 'A' && in[i] <= 'Z') {
+			in[i] = in[i] + 32;
+		}
+	}
+	return;
 }
